@@ -31,7 +31,7 @@ export default function AboutPage() {
         description="Drona Productions is a complete event management & production company — built to design, engineer and deliver premium events from a single, accountable team."
         image={IMAGES.team}
         crumbs={[{ label: "Home", href: "/" }, { label: "About" }]}
-      />
+      /> 
 
       {/* INTRO */}
       <section className="py-20 md:py-28">
@@ -63,7 +63,7 @@ export default function AboutPage() {
             </div>
           </div>
           <Reveal delay={120}>
-            <div className="relative aspect-4/5 overflow-hidden rounded-sm border border-line">
+            <div className="relative aspect-4/5 overflow-hidden rounded-sm border border-line shadow-[0_8px_30px_rgba(212,175,55,0.12)]">
               <Image
                 src={IMAGES.decor}
                 alt="Event styling by Drona Productions"
@@ -78,20 +78,25 @@ export default function AboutPage() {
       </section>
 
       {/* STATS */}
-      <section className="border-y border-line bg-night py-16">
-        <div className="container-x grid grid-cols-2 gap-8 lg:grid-cols-4">
-          {STATS.map((s, i) => (
-            <Reveal key={s.label} delay={i * 80}>
-              <div className="text-center">
-                <div className="font-display text-4xl text-gold-gradient md:text-5xl">
-                  {s.value}
+      <section className="relative overflow-hidden border-y border-line bg-night py-16 md:py-20">
+        {/* Soft atmospheric background glow */}
+        <div className="pointer-events-none absolute left-1/2 top-1/2 h-48 w-[60rem] -translate-x-1/2 -translate-y-1/2 glow-gold opacity-15" />
+        
+        <div className="container-x relative z-10">
+          <div className="grid grid-cols-2 gap-y-10 gap-x-4 lg:grid-cols-4">
+            {STATS.map((s, i) => (
+              <Reveal key={s.label} delay={i * 80}>
+                <div className="text-center">
+                  <div className="font-display text-4xl text-gold-gradient md:text-5xl">
+                    {s.value}
+                  </div>
+                  <div className="mt-2 text-xs uppercase tracking-[0.15em] text-ash">
+                    {s.label}
+                  </div>
                 </div>
-                <div className="mt-2 text-xs uppercase tracking-[0.15em] text-ash">
-                  {s.label}
-                </div>
-              </div>
-            </Reveal>
-          ))}
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -99,7 +104,7 @@ export default function AboutPage() {
       <section className="py-20 md:py-28">
         <div className="container-x grid gap-6 md:grid-cols-2">
           <Reveal>
-            <div className="h-full rounded-sm border border-line bg-charcoal p-8 md:p-10">
+            <div className="h-full rounded-sm border border-line bg-charcoal p-8 md:p-10 shadow-[0_8px_30px_rgba(212,175,55,0.12)]">
               <span className="eyebrow">Our Mission</span>
               <p className="mt-6 text-lg leading-relaxed text-mist">
                 To deliver premium, stress-free events by uniting meticulous
@@ -109,7 +114,7 @@ export default function AboutPage() {
             </div>
           </Reveal>
           <Reveal delay={100}>
-            <div className="h-full rounded-sm border border-line bg-charcoal p-8 md:p-10">
+            <div className="h-full rounded-sm border border-line bg-charcoal p-8 md:p-10 shadow-[0_8px_30px_rgba(212,175,55,0.12)]">
               <span className="eyebrow">Our Vision</span>
               <p className="mt-6 text-lg leading-relaxed text-mist">
                 To be India’s most trusted complete production house — the single
@@ -134,9 +139,9 @@ export default function AboutPage() {
           <div className="mx-auto mt-12 grid max-w-3xl gap-6 sm:grid-cols-2">
             {COMPANY.partners.map((name, i) => (
               <Reveal key={name} delay={i * 100}>
-                <div className="rounded-sm border border-line bg-charcoal p-8 text-center transition hover:border-gold/40">
-                  <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-gold/30 bg-gold/5">
-                    <span className="font-display text-2xl text-gold-gradient">
+                <div className="group rounded-sm border border-line bg-charcoal p-8 text-center transition hover:border-gold/40">
+                  <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-gold/30 bg-gold/5 transition duration-300 group-hover:bg-gold-deep group-hover:border-gold-deep">
+                    <span className="font-display text-2xl text-gold-soft transition duration-300 group-hover:text-ink">
                       {name
                         .split(" ")
                         .map((n) => n[0])

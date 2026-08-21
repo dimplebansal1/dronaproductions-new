@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, ArrowDown } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 import ServiceCard from "@/components/ServiceCard";
@@ -33,62 +33,113 @@ export default function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative isolate flex min-h-screen items-center overflow-hidden">
+      <section className="relative isolate flex min-h-screen flex-col justify-center overflow-hidden pt-28 md:pt-36 xl:pt-48 pb-36 md:pb-40 xl:pb-36">
         <Image
           src={IMAGES.heroConcert}
           alt="Live event production by Drona Productions"
           fill
           priority
           sizes="100vw"
-          className="object-cover"
+          className="object-cover animate-hero-zoom"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/85 to-ink/60" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/70 to-transparent" />
-        <div className="pointer-events-none absolute -left-40 top-1/4 h-[30rem] w-[30rem] glow-gold" />
+        {/* Cinematic Background Treatment */}
+        <div className="absolute inset-0 bg-black/30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 via-ink/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
+        <div className="absolute inset-0 opacity-50 pointer-events-none" style={{ background: "radial-gradient(circle at 60% 50%, transparent 35%, #000000 85%)" }} />
+        
+        {/* Ambient Glow Elements */}
+        <div className="pointer-events-none absolute -left-40 top-1/4 h-[30rem] w-[30rem] glow-gold opacity-50" />
+        <div className="pointer-events-none absolute right-0 top-0 h-[45rem] w-[45rem] opacity-75" style={{ background: "radial-gradient(circle, rgba(212,175,55,0.08) 0%, rgba(212,175,55,0.02) 40%, transparent 70%)" }} />
 
-        <div className="container-x relative z-10 pt-28">
-          <Reveal>
-            <span className="eyebrow">
-              Complete Event Management &amp; Production
-            </span>
-          </Reveal>
-          <Reveal delay={90}>
-            <h1 className="font-display mt-6 max-w-4xl text-5xl leading-[1.02] text-fog sm:text-6xl md:text-7xl">
-              We craft <span className="text-gold-gradient">cinematic</span>{" "}
-              events, end to end.
-            </h1>
-          </Reveal>
-          <Reveal delay={180}>
-            <p className="mt-7 max-w-xl text-lg leading-relaxed text-mist">
-              From concept to final execution — management, production and
-              artist management under one roof. Premium. Modern. Professional.
-            </p>
-          </Reveal>
-          <Reveal delay={260}>
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <Link href="/contact" className="btn btn-gold">
-                Get a Quote <ArrowRight size={16} />
-              </Link>
-              <Link href="/portfolio" className="btn btn-outline">
-                View Our Work
-              </Link>
+        <div className="container-x relative z-10 w-full">
+          <div className="relative pl-8 pt-8 md:pl-10">
+            {/* Left vertical line */}
+            <div className="absolute left-0 top-[10px] bottom-36 w-px bg-gold/15" />
+            {/* Thicker gold accent segment on the vertical line */}
+            <div className="absolute left-0 top-[10px] h-12 w-px bg-gold" />
+            
+            {/* Horizontal line & eyebrow container */}
+            <div className="absolute left-0 top-0 right-0 h-5 flex items-center gap-3 select-none">
+              {/* Line segment from corner to first diamond */}
+              <div className="h-px w-8 bg-gold/25" />
+              {/* First Diamond */}
+              <span className="text-[8px] md:text-[10px] text-gold-soft">◆</span>
+              {/* Eyebrow Text */}
+              <span className="text-[0.65rem] md:text-[0.72rem] font-semibold tracking-[0.22em] uppercase text-gold-soft whitespace-nowrap">
+                Complete Event Management &amp; Production
+              </span>
+              {/* Second Diamond */}
+              <span className="text-[8px] md:text-[10px] text-gold-soft">◆</span>
+              {/* Line segment extending to the right */}
+              <div className="h-px w-16 md:w-24 bg-gradient-to-r from-gold/25 to-transparent" />
             </div>
-          </Reveal>
 
-          <Reveal delay={340}>
-            <div className="mt-16 grid max-w-2xl grid-cols-2 gap-px overflow-hidden rounded-sm border border-line/70 bg-line/40 sm:grid-cols-4">
-              {STATS.map((s) => (
-                <div key={s.label} className="bg-ink/80 px-5 py-6 text-center">
-                  <div className="font-display text-3xl text-gold-gradient">
-                    {s.value}
+            <Reveal delay={90}>
+              <h1 className="font-display max-w-4xl text-5xl font-medium tracking-tight text-fog sm:text-6xl md:text-7xl lg:text-8xl leading-[1.05]">
+                We craft <span className="text-gold-gradient">cinematic</span>{" "}
+                events, end to end.
+              </h1>
+            </Reveal>
+            <Reveal delay={180}>
+              <p className="mt-6 md:mt-8 max-w-xl text-lg leading-relaxed text-mist">
+                From concept to final execution — management, production and
+                artist management under one roof. Premium. Modern. Professional.
+              </p>
+            </Reveal>
+          </div>
+
+          <div className="pl-8 md:pl-10">
+            <Reveal delay={260}>
+              <div className="mt-8 md:mt-10 flex flex-wrap items-center gap-4">
+                <Link href="/contact" className="btn btn-gold group">
+                  Get a Quote <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-0.5" />
+                </Link>
+                <Link href="/portfolio" className="btn border border-white/10 text-mist hover:text-fog hover:border-gold/40 hover:bg-white/5 transition-all duration-300">
+                  View Our Work
+                </Link>
+              </div>
+            </Reveal>
+
+            <Reveal delay={340}>
+              <div className="mt-12 md:mt-16 flex flex-wrap items-center gap-x-8 gap-y-6 md:gap-x-12 border-t border-line/40 pt-8 max-w-3xl">
+                {STATS.map((s) => (
+                  <div key={s.label} className="flex flex-col gap-1">
+                    <div className="font-display text-2xl md:text-3xl text-gold-gradient font-medium">
+                       {s.value}
+                    </div>
+                    <div className="text-[0.62rem] md:text-[0.68rem] uppercase tracking-[0.18em] text-slate font-medium">
+                       {s.label}
+                    </div>
                   </div>
-                  <div className="mt-1 text-[0.7rem] uppercase tracking-[0.15em] text-ash">
-                    {s.label}
-                  </div>
+                ))}
+              </div>
+            </Reveal>
+          </div>
+        </div>
+
+        {/* Bottom decorative bar */}
+        <div className="absolute bottom-6 md:bottom-8 inset-x-0 z-20">
+          <div className="container-x">
+            {/* Thin divider line */}
+            <div className="h-px w-full bg-gradient-to-r from-transparent via-line to-transparent" />
+            
+            <div className="mt-5 md:mt-6 flex items-center justify-between text-[0.62rem] md:text-[0.68rem] tracking-[0.2em] text-ash/70 uppercase">
+              {/* Left label */}
+              <div className="flex items-center gap-2 select-none">
+                <span className="text-[8px] text-gold-soft">◆</span>
+                <span>Drona Productions</span>
+              </div>
+              
+              {/* Right scroll indicator */}
+              <div className="flex items-center gap-2 md:gap-3 select-none">
+                <span>Scroll to Explore</span>
+                <div className="flex h-6 w-6 md:h-7 md:w-7 items-center justify-center rounded-full border border-line text-gold animate-bounce">
+                  <ArrowDown size={10} className="text-gold" />
                 </div>
-              ))}
+              </div>
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 
@@ -130,7 +181,7 @@ export default function Home() {
           </div>
           <Reveal delay={120}>
             <div className="relative">
-              <div className="relative aspect-4/3 overflow-hidden rounded-sm border border-line">
+              <div className="relative aspect-4/3 overflow-hidden rounded-sm border border-line shadow-[0_8px_30px_rgba(212,175,55,0.12)]">
                 <Image
                   src={IMAGES.production}
                   alt="Stage production setup"
@@ -139,7 +190,7 @@ export default function Home() {
                   className="object-cover"
                 />
               </div>
-              <div className="absolute -bottom-6 -left-6 hidden w-44 rounded-sm border border-gold/30 bg-ink/90 p-5 backdrop-blur sm:block">
+              <div className="absolute -bottom-6 -left-6 hidden w-44 rounded-sm border border-gold-soft/60 bg-ink/90 p-5 backdrop-blur sm:block">
                 <div className="font-display text-2xl text-gold-gradient">
                   360°
                 </div>
@@ -264,7 +315,7 @@ export default function Home() {
       </section>
 
       {/* PRODUCTION */}
-      <section className="relative overflow-hidden border-y border-line bg-night py-24 md:py-28">
+      <section className="relative border-y border-line bg-night py-24 md:py-28">
         <div className="pointer-events-none absolute right-0 top-0 h-96 w-96 glow-gold opacity-50" />
         <div className="pointer-events-none absolute bottom-0 left-0 h-80 w-80 glow-gold opacity-30" />
         <div className="container-x relative">
@@ -276,16 +327,16 @@ export default function Home() {
       <section className="py-24 md:py-28">
         <div className="container-x grid items-center gap-14 lg:grid-cols-2">
           <Reveal>
-            <div className="relative">
-              <div className="relative aspect-3/4 overflow-hidden rounded-sm border border-line">
+            <div className="group relative">
+              <div className="relative aspect-3/4 overflow-hidden rounded-sm border border-line shadow-[0_8px_30px_rgba(212,175,55,0.12)]">
                 <Image
                   src={IMAGES.artist}
                   alt="Artist performing on stage"
                   fill
                   sizes="(min-width: 1024px) 40vw, 100vw"
-                  className="object-cover"
+                  className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink/70 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/75 via-ink/20 to-transparent" />
               </div>
             </div>
           </Reveal>
@@ -296,12 +347,12 @@ export default function Home() {
               gold="perfectly managed."
               description="From Bollywood celebrities to international headliners, DJs, live bands and performers — we source the right talent and manage every rider, arrival and cue."
             />
-            <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+            <ul className="mt-8 grid gap-x-6 gap-y-1 sm:grid-cols-2">
               {ARTISTS.map((a, i) => (
                 <Reveal as="li" key={a.title} delay={(i % 2) * 80}>
-                  <span className="flex items-center gap-3 border-b border-line/60 py-3 text-sm text-mist">
-                    <span className="h-1.5 w-1.5 rounded-full bg-gold" />
-                    {a.title}
+                  <span className="group flex items-center gap-3 border-b border-line/60 py-3 text-sm text-mist transition-colors duration-300 hover:border-gold/20">
+                    <span className="text-[7px] text-gold transition-transform duration-300 group-hover:scale-125">◆</span>
+                    <span className="transition-transform duration-300 group-hover:translate-x-1 group-hover:text-fog">{a.title}</span>
                   </span>
                 </Reveal>
               ))}
@@ -309,9 +360,10 @@ export default function Home() {
             <Reveal delay={160}>
               <Link
                 href="/artist-management"
-                className="btn btn-outline mt-8 inline-flex"
+                className="btn btn-outline group mt-8 inline-flex items-center gap-2"
               >
                 Explore Artist Management
+                <ArrowRight size={15} className="transition-transform duration-300 group-hover:translate-x-0.5" />
               </Link>
             </Reveal>
           </div>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Wrench, ArrowRight } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
@@ -93,21 +94,26 @@ export default function EventManagementPage() {
         </div>
       </section>
 
-      <section className="py-20 md:py-24">
-        <div className="container-x rounded-sm border border-gold/20 bg-gold/5 p-8 text-center md:p-12">
-          <Reveal>
-            <p className="mx-auto max-w-2xl text-lg text-mist">
-              Looking for staging, sound, lighting, LED or rigging? Those live in
-              our dedicated{" "}
-              <Link
-                href="/production"
-                className="font-semibold text-gold-soft underline-offset-4 hover:underline"
-              >
-                Production &amp; Technical
-              </Link>{" "}
-              section.
-            </p>
-          </Reveal>
+      <section className="relative overflow-hidden py-16 md:py-24">
+        {/* Soft background glow */}
+        <div className="pointer-events-none absolute left-1/2 top-1/2 h-64 w-[50rem] -translate-x-1/2 -translate-y-1/2 glow-gold opacity-30" />
+        
+        <div className="container-x relative">
+          <div className="mx-auto max-w-4xl rounded-sm border border-line bg-gradient-to-b from-[#131313] to-[#0c0c0c] p-8 text-center md:p-12 transition-all duration-500 hover:border-gold/30 shadow-[0_8px_30px_rgba(212,175,55,0.06)]">
+            <Reveal>
+              <p className="mx-auto max-w-2xl text-lg leading-relaxed text-mist">
+                Looking for staging, sound, lighting, LED or rigging? Those live in
+                our dedicated{" "}
+                <Link
+                  href="/production"
+                  className="font-semibold text-gold-soft underline-offset-4 hover:underline"
+                >
+                  Production &amp; Technical
+                </Link>{" "}
+                section.
+              </p>
+            </Reveal>
+          </div>
         </div>
       </section>
 

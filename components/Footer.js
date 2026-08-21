@@ -35,7 +35,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="flex h-10 w-10 items-center justify-center rounded border border-line text-mist transition hover:border-gold/50 hover:text-gold-soft"
+                className="flex h-10 w-10 items-center justify-center rounded border border-line text-mist transition duration-300 hover:bg-gold-deep hover:border-gold-deep hover:text-black"
               >
                 <InstagramIcon size={18} />
               </a>
@@ -44,7 +44,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="flex h-10 w-10 items-center justify-center rounded border border-line text-mist transition hover:border-gold/50 hover:text-gold-soft"
+                className="flex h-10 w-10 items-center justify-center rounded border border-line text-mist transition duration-300 hover:bg-gold-deep hover:border-gold-deep hover:text-black"
               >
                 <FacebookIcon size={18} />
               </a>

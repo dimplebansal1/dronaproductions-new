@@ -196,9 +196,8 @@ body {
       box-shadow 0.4s;
   }
   .card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(212, 175, 55, 0.4);
-    box-shadow: 0 24px 60px -30px rgba(212, 175, 55, 0.35);
+    border-color: rgba(212, 175, 55, 0.3);
+    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.08);
   }
 
   .hairline {

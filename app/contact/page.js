@@ -40,11 +40,11 @@ export default function ContactPage() {
 
             <div className="mt-10 space-y-5">
               <Reveal delay={80}>
-                <a
+              <a
                   href={`mailto:${COMPANY.email}`}
-                  className="flex items-start gap-4 rounded-sm border border-line bg-charcoal p-5 transition hover:border-gold/40"
+                  className="group flex items-start gap-4 rounded-sm border border-line bg-charcoal p-5 transition duration-300 hover:border-gold/40 hover:shadow-[0_8px_30px_rgba(212,175,55,0.08)]"
                 >
-                  <span className="flex h-11 w-11 items-center justify-center rounded-sm border border-gold/25 bg-gold/5 text-gold-soft">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-sm border border-gold/25 bg-gold/5 text-gold-soft transition duration-300 group-hover:bg-gold-deep group-hover:border-gold-deep group-hover:text-ink">
                     <Mail size={20} />
                   </span>
                   <span>
@@ -57,10 +57,10 @@ export default function ContactPage() {
                   </span>
                 </a>
               </Reveal>
-
+ 
               <Reveal delay={140}>
-                <div className="flex items-start gap-4 rounded-sm border border-line bg-charcoal p-5">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-sm border border-gold/25 bg-gold/5 text-gold-soft">
+                <div className="group flex items-start gap-4 rounded-sm border border-line bg-charcoal p-5 transition duration-300 hover:border-gold/40 hover:shadow-[0_8px_30px_rgba(212,175,55,0.08)]">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-sm border border-gold/25 bg-gold/5 text-gold-soft transition duration-300 group-hover:bg-gold-deep group-hover:border-gold-deep group-hover:text-ink">
                     <MapPin size={20} />
                   </span>
                   <span>
@@ -73,10 +73,10 @@ export default function ContactPage() {
                   </span>
                 </div>
               </Reveal>
-
+ 
               <Reveal delay={200}>
-                <div className="flex items-start gap-4 rounded-sm border border-line bg-charcoal p-5">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-sm border border-gold/25 bg-gold/5 text-gold-soft">
+                <div className="group flex items-start gap-4 rounded-sm border border-line bg-charcoal p-5 transition duration-300 hover:border-gold/40 hover:shadow-[0_8px_30px_rgba(212,175,55,0.08)]">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-sm border border-gold/25 bg-gold/5 text-gold-soft transition duration-300 group-hover:bg-gold-deep group-hover:border-gold-deep group-hover:text-ink">
                     <Clock size={20} />
                   </span>
                   <span>
@@ -102,7 +102,7 @@ export default function ContactPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Instagram"
-                    className="flex h-11 w-11 items-center justify-center rounded-sm border border-line text-mist transition hover:border-gold/50 hover:text-gold-soft"
+                    className="flex h-11 w-11 items-center justify-center rounded-sm border border-line text-mist transition duration-300 hover:bg-gold-deep hover:border-gold-deep hover:text-black"
                   >
                     <InstagramIcon size={20} />
                   </a>
@@ -111,7 +111,7 @@ export default function ContactPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Facebook"
-                    className="flex h-11 w-11 items-center justify-center rounded-sm border border-line text-mist transition hover:border-gold/50 hover:text-gold-soft"
+                    className="flex h-11 w-11 items-center justify-center rounded-sm border border-line text-mist transition duration-300 hover:bg-gold-deep hover:border-gold-deep hover:text-black"
                   >
                     <FacebookIcon size={20} />
                   </a>

@@ -45,7 +45,7 @@ export default function ArtistManagementPage() {
       <section className="border-y border-line bg-night py-20 md:py-28">
         <div className="container-x grid items-center gap-14 lg:grid-cols-2">
           <Reveal>
-            <div className="relative aspect-4/5 overflow-hidden rounded-sm border border-line">
+            <div className="relative aspect-4/5 overflow-hidden rounded-sm border border-line shadow-[0_8px_30px_rgba(212,175,55,0.12)]">
               <Image
                 src={IMAGES.dancers}
                 alt="Performers on stage"

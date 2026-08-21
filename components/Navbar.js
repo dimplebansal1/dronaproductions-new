@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, Mail, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight, Mail } from "lucide-react";
 import { NAV, COMPANY } from "@/lib/data";
 import { InstagramIcon, FacebookIcon } from "./SocialIcons";
 
@@ -34,58 +34,58 @@ export default function Navbar() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50">
+      {/* Top Info Bar */}
       <div
-        className={`relative transition-all duration-500 ${scrolled
-          ? "border-b border-gold/10 bg-ink/80 shadow-[0_10px_40px_-20px_rgba(0,0,0,0.9)] backdrop-blur-xl"
-          : "border-b border-transparent bg-gradient-to-b from-black/80 via-black/40 to-transparent"
-          }`}
+        className={`hidden xl:block border-b border-line bg-ink/95 text-[0.62rem] md:text-[0.68rem] tracking-[0.18em] uppercase text-ash transition-all duration-500 overflow-hidden ${
+          scrolled ? "h-0 opacity-0 border-b-0" : "h-9 opacity-100"
+        }`}
       >
-        {/* Utility bar */}
-        <div
-          className={`hidden overflow-hidden border-b border-white/5 transition-all duration-500 lg:block ${scrolled ? "max-h-0 opacity-0" : "max-h-12 opacity-100"
-            }`}
-        >
-          <div className="container-x flex items-center justify-between py-2 text-[0.7rem] tracking-[0.12em] text-ash">
-            <span className="flex items-center gap-2 uppercase">
-              <span className="text-gold">◆</span>
-              Complete Event Management &amp; Production
-            </span>
-            <div className="flex items-center gap-5">
+        <div className="container-x flex h-9 items-center justify-between">
+          <div className="flex items-center gap-2 select-none">
+            <span className="text-[8px] md:text-[10px] text-gold-soft">◆</span>
+            <span className="text-mist">{COMPANY.tagline}</span>
+          </div>
+          <div className="flex items-center gap-4">
+            <a
+              href={`mailto:${COMPANY.email}`}
+              className="flex items-center gap-1.5 transition hover:text-gold-soft"
+            >
+              <Mail size={11} className="text-gold-soft" />
+              <span>{COMPANY.email}</span>
+            </a>
+            <span className="text-line">|</span>
+            <div className="flex items-center gap-3">
               <a
-                href={`mailto:${COMPANY.email}`}
-                className="flex items-center gap-2 transition-colors hover:text-gold-soft"
+                href={COMPANY.socials.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="transition hover:text-gold-soft"
               >
-                <Mail size={13} className="text-gold/70" />
-                {COMPANY.email}
+                <InstagramIcon size={12} />
               </a>
-              <span className="h-3 w-px bg-white/15" />
-              <div className="flex items-center gap-3">
-                <a
-                  href={COMPANY.socials.instagram}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram"
-                  className="text-ash transition-colors hover:text-gold-soft"
-                >
-                  <InstagramIcon size={15} />
-                </a>
-                <a
-                  href={COMPANY.socials.facebook}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Facebook"
-                  className="text-ash transition-colors hover:text-gold-soft"
-                >
-                  <FacebookIcon size={15} />
-                </a>
-              </div>
+              <a
+                href={COMPANY.socials.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="transition hover:text-gold-soft"
+              >
+                <FacebookIcon size={12} />
+              </a>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Main bar */}
+      <div
+        className={`relative transition-all duration-500 ${scrolled
+          ? "border-b border-gold/10 bg-ink/80 shadow-[0_10px_40px_-20px_rgba(0,0,0,0.9)] backdrop-blur-xl"
+          : "border-b-0 border-transparent bg-gradient-to-b from-black/80 via-black/40 to-transparent"
+          }`}
+      >
         <nav
-          className={`container-x flex items-center justify-between gap-4 transition-all duration-500 ${scrolled ? "py-2.5" : "py-3.5"
+          className={`container-x flex items-center justify-between gap-4 transition-all duration-500 ${scrolled ? "py-2.5 lg:py-3.5" : "py-3.5 lg:py-6"
             }`}
         >
           <Link
@@ -104,7 +104,7 @@ export default function Navbar() {
             />
           </Link>
 
-          <ul className="hidden items-center xl:flex">
+          <ul className="hidden items-center gap-2 xl:flex">
             {NAV.map((item) => {
               const active = isActive(item.href);
               return (

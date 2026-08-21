@@ -23,7 +23,7 @@ export default function PortfolioGrid() {
             className={`rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] transition ${
               active === f
                 ? "border-gold/60 bg-gold/10 text-gold-bright"
-                : "border-line text-ash hover:border-gold/40 hover:text-fog"
+                : "border-line text-ash hover:bg-[#d4af37] hover:border-[#d4af37] hover:text-black"
             }`}
           >
             {f}
