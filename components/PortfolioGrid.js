@@ -19,6 +19,7 @@ export default function PortfolioGrid() {
           <button
             key={f}
             type="button"
+            suppressHydrationWarning
             onClick={() => setActive(f)}
             className={`rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] transition ${
               active === f

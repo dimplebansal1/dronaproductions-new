@@ -310,6 +310,13 @@ body {
   animation: scroll-cue 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
+/* Popup transition */
+.popup-transition {
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-hero-zoom,
   .animate-scroll-cue,
@@ -318,4 +325,8 @@ body {
   .animate-floaty {
     animation: none;
   }
+  .popup-transition {
+    transition: none;
+  }
 }
+

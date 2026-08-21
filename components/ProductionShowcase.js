@@ -14,7 +14,7 @@ const IMAGE_TILES = {
   6: { src: IMAGES.led, label: "LED Walls & AV", icon: "MonitorPlay" },
 };
 
-function PhotoTile({ tile, delay, className = "col-span-2" }) {
+function PhotoTile({ tile, delay, className = "col-span-1 sm:col-span-2" }) {
   return (
     <Reveal delay={delay} className={className}>
       <Link
@@ -171,7 +171,7 @@ export default function ProductionShowcase({ services }) {
     </div>
 
       {/* Bento of services + photo tiles */}
-      <div className="grid grid-cols-2 gap-4 grid-flow-row-dense lg:col-span-8 lg:grid-cols-3">{tiles}</div>
+      <div className="grid grid-cols-1 gap-4 grid-flow-row-dense sm:grid-cols-2 lg:col-span-8 lg:grid-cols-3">{tiles}</div>
     </div>
   );
 }

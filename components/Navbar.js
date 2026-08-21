@@ -146,6 +146,7 @@ export default function Navbar() {
 
           <button
             type="button"
+            suppressHydrationWarning
             onClick={() => setOpen((v) => !v)}
             className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-line text-fog transition hover:border-gold/50 hover:text-gold-soft xl:hidden"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -164,12 +165,12 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <div
-        className={`fixed inset-x-0 bottom-0 top-[64px] z-40 origin-top bg-ink/98 backdrop-blur-xl transition-all duration-300 xl:hidden ${open
-          ? "pointer-events-auto opacity-100"
-          : "pointer-events-none -translate-y-2 opacity-0"
+        className={`fixed inset-x-0 bottom-0 top-[64px] z-40 origin-top bg-ink/98 backdrop-blur-xl transition-all duration-300 xl:hidden overflow-y-auto ${open
+          ? "pointer-events-auto opacity-100 visible"
+          : "pointer-events-none -translate-y-2 opacity-0 invisible"
           }`}
       >
-        <div className="container-x flex h-full flex-col py-8">
+        <div className="container-x flex min-h-[calc(100vh-64px)] flex-col py-8">
           <ul className="flex flex-col">
             {NAV.map((item, i) => (
               <li key={item.href}>

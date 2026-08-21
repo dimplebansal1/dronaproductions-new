@@ -21,6 +21,7 @@ export default function PageHero({
             alt=""
             fill
             priority
+            loading="eager"
             sizes="100vw"
             className="animate-hero-zoom object-cover"
           />
@@ -38,25 +39,25 @@ export default function PageHero({
       <div className="container-x relative z-10 w-full">
         <div className="relative pl-8 pt-8 md:pl-10">
           {/* Left vertical line */}
-          <div className="absolute left-0 top-[10px] bottom-36 w-px bg-gold/15" />
+          <div className="absolute left-0 top-[10px] bottom-36 w-0.5 bg-gold/30" />
           {/* Thicker gold accent segment on the vertical line */}
-          <div className="absolute left-0 top-[10px] h-12 w-px bg-gold" />
+          <div className="absolute left-0 top-[10px] h-12 w-0.5 bg-gold-soft" />
           
           {/* Horizontal line & eyebrow container */}
           {eyebrow ? (
-            <div className="absolute left-0 top-0 right-0 h-5 flex items-center gap-3 select-none">
+            <div className="absolute left-0 top-0 right-0 h-5 flex items-center gap-2.5 select-none">
               {/* Line segment from corner to first diamond */}
-              <div className="h-px w-8 bg-gold/25" />
+              <div className="h-0.5 w-4 sm:w-8 bg-gold-soft" />
               {/* First Diamond */}
               <span className="text-[8px] md:text-[10px] text-gold-soft">◆</span>
               {/* Eyebrow Text */}
-              <span className="text-[0.65rem] md:text-[0.72rem] font-semibold tracking-[0.22em] uppercase text-gold-soft whitespace-nowrap">
+              <span className="text-[0.58rem] sm:text-[0.72rem] font-semibold tracking-[0.22em] uppercase text-gold-soft whitespace-nowrap overflow-hidden text-ellipsis max-w-[calc(100vw-5rem)]">
                 {eyebrow}
               </span>
               {/* Second Diamond */}
-              <span className="text-[8px] md:text-[10px] text-gold-soft">◆</span>
+              <span className="hidden sm:inline text-[8px] md:text-[10px] text-gold-soft">◆</span>
               {/* Line segment extending to the right */}
-              <div className="h-px w-16 md:w-24 bg-gradient-to-r from-gold/25 to-transparent" />
+              <div className="hidden sm:block h-0.5 w-8 sm:w-16 md:w-24 bg-gradient-to-r from-gold-soft to-transparent" />
             </div>
           ) : null}
 

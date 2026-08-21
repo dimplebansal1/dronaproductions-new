@@ -5,7 +5,6 @@ import { MessageSquare, X, Send } from "lucide-react";
 
 export default function QueryWidget() {
   const [isOpen, setIsOpen] = useState(false);
-  const [hasAutoOpened, setHasAutoOpened] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     company: "",
@@ -15,23 +14,22 @@ export default function QueryWidget() {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  // Automatically open the popup once on scroll down (resets only on page refresh)
+  // Automatically open the popup on desktop screens when scrolling down
   useEffect(() => {
-    if (hasAutoOpened) return;
-
     const handleScroll = () => {
-      if (window.scrollY > 30) {
+      if (window.innerWidth >= 1024 && window.scrollY > 30) {
         setIsOpen(true);
-        setHasAutoOpened(true);
+        window.removeEventListener("scroll", handleScroll);
       }
     };
-    
+
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [hasAutoOpened]);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("Query Form Submitted Data:", formData);
     // Simulate API request
     setIsSubmitted(true);
     setTimeout(() => {
@@ -47,27 +45,33 @@ export default function QueryWidget() {
       {/* Floating Pill Button */}
       <button
         type="button"
-        onClick={() => setIsOpen(true)}
-        className={`fixed bottom-4 right-4 z-40 flex items-center gap-2 rounded-full border border-gold/30 bg-ink/90 px-5 py-3 text-[0.72rem] font-bold uppercase tracking-[0.15em] text-gold-soft shadow-[0_4px_20px_rgba(212,175,55,0.12),0_8px_30px_rgba(0,0,0,0.8)] backdrop-blur-md transition-all duration-300 hover:border-gold hover:bg-gold-soft hover:text-ink hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(212,175,55,0.28),0_12px_45px_rgba(0,0,0,0.9)] ${
-          isOpen ? "pointer-events-none translate-y-4 opacity-0" : "pointer-events-auto translate-y-0 opacity-100"
-        }`}
+        suppressHydrationWarning
+        onClick={() => setIsOpen(!isOpen)}
+        className="fixed bottom-28 right-6 sm:bottom-6 sm:right-6 z-50 flex items-center gap-2 rounded-full border border-gold-soft/50 bg-charcoal/95 px-6 py-3.5 text-xs sm:px-5 sm:py-3 sm:text-[0.72rem] font-bold uppercase tracking-[0.15em] text-gold-soft shadow-[0_4px_20px_rgba(212,175,55,0.15),0_8px_30px_rgba(0,0,0,0.8)] backdrop-blur-md transition-all duration-300 hover:border-gold hover:bg-gold-soft hover:text-ink hover:-translate-y-0.5 hover:shadow-[0_8px_30px_rgba(212,175,55,0.28),0_12px_45px_rgba(0,0,0,0.9)] pointer-events-auto translate-y-0 opacity-100"
       >
         <MessageSquare size={14} className="animate-pulse" />
         <span>Any Query?</span>
       </button>
 
       {/* Modal Popup */}
-      {isOpen && (
-        <div className="fixed bottom-18 right-4 z-40 w-[calc(100vw-3rem)] sm:w-96 overflow-hidden rounded-sm border border-line bg-gradient-to-b from-charcoal/98 to-ink/98 p-6 md:p-8 shadow-[0_12px_40px_rgba(0,0,0,0.8)] backdrop-blur-xl animate-in slide-in-from-bottom-5 fade-in duration-300">
+      <div className={`fixed left-4 right-4 top-1/2 max-h-[85vh] sm:left-auto sm:right-4 sm:top-auto sm:bottom-18 sm:w-96 sm:max-h-[calc(100vh-6rem)] z-50 flex flex-col overflow-hidden rounded-sm border border-line bg-gradient-to-b from-charcoal/98 to-ink/98 shadow-[0_12px_40px_rgba(0,0,0,0.8)] backdrop-blur-xl popup-transition ${
+        isOpen
+          ? "opacity-100 [transform:perspective(1000px)_translateY(-50%)_scale(1)_rotateX(0deg)] sm:[transform:perspective(1000px)_translateY(0)_scale(1)_rotateX(0deg)] pointer-events-auto visible"
+          : "opacity-0 [transform:perspective(1000px)_translateY(-40%)_scale(0.95)_rotateX(-12deg)] sm:[transform:perspective(1000px)_translateY(24px)_scale(0.95)_rotateX(-12deg)] pointer-events-none invisible"
+      }`}>
           {/* Header Close Button */}
           <button
             type="button"
+            suppressHydrationWarning
             onClick={() => setIsOpen(false)}
-            className="absolute right-4 top-4 text-ash hover:text-gold-soft transition-colors duration-300"
+            className="absolute right-4 top-4 z-50 text-ash hover:text-gold-soft transition-colors duration-300"
             aria-label="Close form"
           >
             <X size={20} />
           </button>
+
+          {/* Scrollable Container */}
+          <div className="overflow-y-auto p-5 sm:p-6 md:p-8">
 
           {isSubmitted ? (
             <div className="flex flex-col items-center justify-center py-10 text-center animate-in fade-in duration-300">
@@ -161,7 +165,7 @@ export default function QueryWidget() {
             </form>
           )}
         </div>
-      )}
+      </div>
     </>
   );
 }
