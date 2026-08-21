@@ -1,26 +1,322 @@
 @import "tailwindcss";
 
+/*
+  DRONA PRODUCTIONS — Design System
+  Palette: ~75% Black + ~15% Grey/White + ~10% Gold
+  Gold is reserved for logo highlights, buttons, headings & key details.
+*/
+
+@theme {
+  --color-ink: #000000;
+  --color-night: #0a0a0a;
+  --color-charcoal: #101010;
+  --color-surface: #151515;
+  --color-elevated: #1c1c1c;
+  --color-line: #262626;
+
+  --color-fog: #f4f4f5;
+  --color-mist: #d4d4d8;
+  --color-ash: #a1a1aa;
+  --color-slate: #71717a;
+
+  --color-gold: #d4af37;
+  --color-gold-soft: #e7c873;
+  --color-gold-bright: #f4e4a6;
+  --color-gold-deep: #a67c1a;
+
+  --font-display: var(--font-display), Georgia, serif;
+  --font-sans: var(--font-body), system-ui, sans-serif;
+
+  --shadow-gold: 0 10px 40px -12px rgba(212, 175, 55, 0.35);
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #f4f4f5;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  border-color: var(--color-line);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(212, 175, 55, 0.28);
+  color: #fff;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #a67c1a, #d4af37);
+  border-radius: 999px;
+  border: 2px solid #050505;
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .container-x {
+    width: 100%;
+    max-width: 80rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (min-width: 768px) {
+    .container-x {
+      padding-inline: 2rem;
+    }
+  }
+
+  /* Shimmering gold text used for headings & highlights */
+  .text-gold-gradient {
+    background: linear-gradient(
+      92deg,
+      #a67c1a 0%,
+      #d4af37 25%,
+      #f4e4a6 50%,
+      #d4af37 75%,
+      #a67c1a 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .bg-gold-gradient {
+    background-image: linear-gradient(120deg, #a67c1a, #d4af37 45%, #f4e4a6 55%, #d4af37 70%, #a67c1a);
+  }
+
+  .border-gold-faint {
+    border-color: rgba(212, 175, 55, 0.25);
+  }
+
+  /* Kicker / eyebrow label */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--color-gold-soft);
+    font-weight: 600;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 1.75rem;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-gold));
+  }
+
+  .eyebrow-center::after {
+    content: "";
+    width: 1.75rem;
+    height: 1px;
+    background: linear-gradient(90deg, var(--color-gold), transparent);
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.85rem 1.75rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-radius: 2px;
+    transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .btn-gold {
+    background-image: linear-gradient(120deg, #a67c1a, #d4af37 50%, #b8901f);
+    color: #100b00;
+    box-shadow: var(--shadow-gold);
+  }
+  .btn-gold:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 44px -12px rgba(212, 175, 55, 0.6);
+    filter: brightness(1.08);
+  }
+
+  .btn-outline {
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    color: var(--color-gold-soft);
+    background: transparent;
+  }
+  .btn-outline:hover {
+    background: rgba(212, 175, 55, 0.08);
+    border-color: var(--color-gold);
+    color: var(--color-gold-bright);
+    transform: translateY(-2px);
+  }
+
+  .btn-ghost {
+    border: 1px solid var(--color-line);
+    color: var(--color-mist);
+    background: transparent;
+  }
+  .btn-ghost:hover {
+    border-color: rgba(212, 175, 55, 0.5);
+    color: #fff;
+  }
+
+  /* Card surface with gold hover */
+  .card {
+    background: linear-gradient(180deg, #131313, #0c0c0c);
+    border: 1px solid var(--color-line);
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.4s,
+      box-shadow 0.4s;
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(212, 175, 55, 0.4);
+    box-shadow: 0 24px 60px -30px rgba(212, 175, 55, 0.35);
+  }
+
+  .hairline {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.5), transparent);
+  }
+
+  /* Subtle noise/grain overlay hook */
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Ambient gold glow used behind heroes */
+.glow-gold {
+  background: radial-gradient(
+    closest-side,
+    rgba(212, 175, 55, 0.18),
+    transparent 70%
+  );
+}
+
+@keyframes shimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+.animate-shimmer {
+  animation: shimmer 6s linear infinite;
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+.animate-floaty {
+  animation: floaty 6s ease-in-out infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 32s linear infinite;
+}
+
+/* Cinematic settle-in zoom for hero imagery */
+@keyframes hero-zoom {
+  from {
+    transform: scale(1.12);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.animate-hero-zoom {
+  animation: hero-zoom 3s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+/* Scroll cue — gold spark travelling down a thin track */
+@keyframes scroll-cue {
+  0% {
+    transform: translateY(-100%);
+  }
+  65%,
+  100% {
+    transform: translateY(100%);
+  }
+}
+.animate-scroll-cue {
+  animation: scroll-cue 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-hero-zoom,
+  .animate-scroll-cue,
+  .animate-marquee,
+  .animate-shimmer,
+  .animate-floaty {
+    animation: none;
+  }
 }
