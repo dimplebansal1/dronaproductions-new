@@ -35,18 +35,19 @@ export default function Home() {
     <>
       {/* HERO */}
       <section className="relative isolate flex min-h-screen flex-col justify-center overflow-hidden pt-28 md:pt-36 xl:pt-48 pb-36 md:pb-40 xl:pb-36">
-        <Image
-          src={IMAGES.heroConcert}
-          alt="Live event production by Drona Productions"
-          fill
-          priority
-          loading="eager"
-          sizes="100vw"
-          className="object-cover animate-hero-zoom"
-        />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster={IMAGES.heroConcert}
+          className="absolute inset-0 h-full w-full object-cover"
+        >
+          <source src="/videos/hero-bg-vdo.mp4" type="video/mp4" />
+        </video>
         {/* Cinematic Background Treatment */}
         <div className="absolute inset-0 bg-black/30" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 via-ink/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/75 via-ink/40 to-transparent" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
         <div className="absolute inset-0 opacity-50 pointer-events-none" style={{ background: "radial-gradient(circle at 60% 50%, transparent 35%, #000000 85%)" }} />
         

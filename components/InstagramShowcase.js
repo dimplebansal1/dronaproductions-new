@@ -30,8 +30,6 @@ export default function InstagramShowcase() {
             <Reveal key={reel.id} delay={(i % 4) * 80}>
               <a
                 href={reel.link}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="group relative block aspect-[9/16] overflow-hidden rounded-sm border border-line bg-ink shadow-md hover:border-gold/30 hover:shadow-[0_15px_30px_rgba(212,175,55,0.08)]"
               >
                 {/* Background Image */}
