@@ -24,8 +24,8 @@
   --color-gold-bright: #f4e4a6;
   --color-gold-deep: #a67c1a;
 
-  --font-display: var(--font-display), Georgia, serif;
-  --font-sans: var(--font-body), system-ui, sans-serif;
+  --font-display: var(--font-baloo), sans-serif;
+  --font-sans: var(--font-baloo), sans-serif;
 
   --shadow-gold: 0 10px 40px -12px rgba(212, 175, 55, 0.35);
 }

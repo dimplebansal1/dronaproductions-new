@@ -1,21 +1,15 @@
-import { Playfair_Display, Inter } from "next/font/google";
+import { Baloo_2 } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import QueryWidget from "@/components/QueryWidget";
 import { COMPANY } from "@/lib/data";
 
-const playfair = Playfair_Display({
-  variable: "--font-display",
+const baloo = Baloo_2({
+  variable: "--font-baloo",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500", "600", "700"],
-});
-
-const inter = Inter({
-  variable: "--font-body",
-  subsets: ["latin"],
-  display: "swap",
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 export const metadata = {
@@ -53,7 +47,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${playfair.variable} ${inter.variable} h-full antialiased`}
+      className={`${baloo.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-ink text-fog">
         <Navbar />
