@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { Check, ArrowRight } from "lucide-react";
+import Reveal from "./Reveal";
 
 const categories = [
   {
@@ -81,27 +83,9 @@ const categories = [
 ];
 
 export default function EventCategories() {
-  const [activeTab, setActiveTab] = useState(categories[0]);
-  const [isHovered, setIsHovered] = useState(false);
-
-  useEffect(() => {
-    if (isHovered) return;
-
-    const timer = setInterval(() => {
-      setActiveTab((prevTab) => {
-        const currentIndex = categories.findIndex((c) => c.id === prevTab.id);
-        const nextIndex = (currentIndex + 1) % categories.length;
-        return categories[nextIndex];
-      });
-    }, 4000); // changes every 4 seconds
-
-    return () => clearInterval(timer);
-  }, [activeTab, isHovered]);
-
   const handleInquire = (categoryName) => {
     const contactForm = document.querySelector("#contact");
     if (contactForm) {
-      // Find event type input and set value
       const selectElement = document.querySelector('select[name="eventType"]');
       if (selectElement) {
         selectElement.value = categoryName;
@@ -127,136 +111,104 @@ export default function EventCategories() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 md:mb-24 items-end">
           <div className="lg:col-span-6 text-left">
             <div className="flex items-center gap-2 mb-3">
-              <span className="h-[1px] w-6 bg-gold/80" />
-              <span className="text-[11.5px] font-semibold tracking-[0.28em] text-gold uppercase">
-                What We Do
-              </span>
+              <span className="eyebrow">What We Do</span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-white font-semibold tracking-tight">
-              We Manage
-            </h2>
+            <Reveal>
+              <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-fog font-normal leading-tight tracking-tight">
+                We Manage
+              </h2>
+            </Reveal>
           </div>
           <div className="lg:col-span-6 text-left">
-            <p className="text-zinc-500 text-sm md:text-base font-normal leading-relaxed max-w-xl lg:ml-auto">
-              We deliver distinct event management strategies tailored to the precise requirements 
-              of each environment. Select a category below to view our operational capabilities.
-            </p>
+            <Reveal delay={100}>
+              <p className="text-mist text-lg font-normal leading-relaxed max-w-xl lg:ml-auto">
+                We deliver distinct event management strategies tailored to the precise requirements 
+                of each environment. Select a category below to view our operational capabilities.
+              </p>
+            </Reveal>
           </div>
         </div>
 
-        <div
-          className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-stretch"
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
-          
-          {/* Left: Tab Selector List */}
-          <div className="lg:col-span-4 flex flex-col justify-start space-y-1">
-            {categories.map((category, index) => {
-              const isActive = activeTab.id === category.id;
-              const serialNum = String(index + 1).padStart(2, "0");
-              return (
-                <button
-                  key={category.id}
-                  onClick={() => setActiveTab(category)}
-                  suppressHydrationWarning={true}
-                  className="w-full text-left py-4 flex items-center gap-4 transition-all duration-300 group outline-none focus:outline-none border-b border-zinc-900/50 pb-4"
-                >
-                  {/* Serial Number */}
-                  <span className={`font-mono text-xs tracking-widest transition-colors duration-300 ${
-                    isActive ? "text-gold" : "text-zinc-700 group-hover:text-zinc-500"
-                  }`}>
-                    {serialNum}
-                  </span>
-                  
-                  {/* Slash Divider */}
-                  <span className="font-light text-xs text-zinc-800">/</span>
-
-                  {/* Tab Label */}
-                  <span className={`text-xs md:text-sm font-bold tracking-[0.2em] uppercase transition-all duration-300 ${
-                    isActive ? "text-white" : "text-zinc-500 group-hover:text-zinc-200"
-                  }`}>
-                    {category.name}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
-
-          {/* Right: Dynamic Capability Presenter */}
-          <div className="lg:col-span-8 bg-zinc-950/40 border border-zinc-900/80 p-8 md:p-10 flex flex-col justify-between transition-all duration-500 relative overflow-hidden group min-h-[480px]">
-            {/* Background styled glow */}
-            <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-gold/3 rounded-full filter blur-[80px] pointer-events-none" />
-
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-stretch">
-              {/* Left Side: Content Text */}
-              <div className="md:col-span-7 flex flex-col justify-between h-full">
-                <div>
-                  {/* Category Subtitle */}
-                  <span className="text-[11.5px] font-semibold tracking-[0.28em] text-gold uppercase block mb-2">
-                    {activeTab.tagline}
-                  </span>
-                  
-                  {/* Category Name */}
-                  <h3 className="font-serif text-3xl md:text-4xl text-white font-light tracking-tight mb-6">
-                    {activeTab.name}
-                  </h3>
-                  
-                  {/* Description */}
-                  <p className="text-zinc-400 text-sm font-normal leading-relaxed mb-6">
-                    {activeTab.description}
-                  </p>
-
-                  {/* Specific Management Capabilities */}
-                  <h4 className="text-xs md:text-sm font-bold tracking-[0.15em] text-zinc-500 uppercase mb-3.5">
-                    Core Capabilities & Focus
-                  </h4>
-                  
-                  <ul className="flex flex-col gap-3">
-                    {activeTab.capabilities.map((cap, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5 text-zinc-300 text-xs md:text-sm font-light">
-                        <span className="text-gold mt-1 text-[8px] md:text-[10px]">■</span>
-                        <span>{cap}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-
-              {/* Right Side: Tab Related Image */}
-              <div className="md:col-span-5 w-full relative aspect-video md:aspect-auto md:h-full min-h-[300px] rounded-sm overflow-hidden border border-zinc-900 group/img bg-zinc-950">
-                <img
-                  key={activeTab.id}
-                  src={activeTab.image}
-                  alt={activeTab.name}
-                  loading="lazy"
-                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover/img:scale-105 animate-fade-in"
-                />
-                {/* Subtle dark gradient overlay on image */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10 pointer-events-none" />
-              </div>
-            </div>
-
-            {/* Inquire Action */}
-            <div className="pt-6 mt-8 border-t border-zinc-900 flex items-center justify-between flex-wrap gap-4 z-10">
-              <span className="text-xs text-zinc-500 font-light">
-                Tailored setup & coordination options are available.
-              </span>
-              <button
-                onClick={() => handleInquire(activeTab.name)}
-                suppressHydrationWarning={true}
-                className="border border-gold text-gold hover:bg-gold hover:text-black transition-all duration-300 text-xs font-bold tracking-[0.15em] px-6 py-3 rounded-none uppercase"
+        {/* 3-Column Grid Layout (Aligned to start, not centered) */}
+        <div className="flex flex-wrap justify-start gap-6">
+          {categories.map((category) => {
+            return (
+              <div
+                key={category.id}
+                className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] h-[520px] relative overflow-hidden rounded-sm border border-line bg-zinc-950 cursor-pointer group hover:border-gold/30 hover:shadow-[0_0_40px_rgba(212,175,55,0.05)] transition-all duration-500"
               >
-                Inquire for {activeTab.name}
-              </button>
-            </div>
-          </div>
+                {/* Background Image and Overlay */}
+                <div className="absolute inset-0 z-0 pointer-events-none">
+                  <img
+                    src={category.image}
+                    alt={category.name}
+                    className="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105 filter grayscale brightness-[0.4] group-hover:grayscale-0 group-hover:brightness-[0.7]"
+                  />
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/85 to-black/25 group-hover:from-black group-hover:via-black/90 group-hover:to-black/35 transition-all duration-500 z-10" />
+                </div>
 
+                {/* Content Panel */}
+                <div className="relative z-20 flex flex-col justify-end h-full p-6 md:p-8">
+                  
+                  {/* Sliding Container (Always visible on mobile/tablet, slides up on desktop hover) */}
+                  <div className="transform lg:translate-y-[190px] lg:group-hover:translate-y-0 transition-transform duration-500 ease-out flex flex-col justify-end">
+                    
+                    {/* Tagline */}
+                    <span className="text-xs font-semibold tracking-[0.28em] text-gold-soft uppercase block mb-2">
+                      {category.tagline}
+                    </span>
+
+                    {/* Category Title */}
+                    <h3 className="font-serif text-3xl md:text-4xl text-white font-normal tracking-tight mb-4">
+                      {category.name}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-mist text-sm md:text-base font-normal leading-relaxed mb-6 line-clamp-2 group-hover:line-clamp-none transition-all duration-300">
+                      {category.description}
+                    </p>
+
+                    {/* Capabilities (Hidden on desktop, fades/slides in on hover) */}
+                    <div className="lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 delay-75">
+                      <h4 className="text-xs md:text-sm font-bold tracking-[0.15em] text-zinc-400 uppercase mb-3.5 flex items-center gap-2">
+                        <span className="h-px w-3 bg-gold/50" />
+                        Core Capabilities & Focus
+                      </h4>
+                      <ul className="flex flex-col gap-2 mb-5">
+                        {category.capabilities.slice(0, 4).map((cap, idx) => (
+                          <li key={idx} className="flex items-start gap-2.5 text-mist text-sm md:text-base font-normal leading-snug">
+                            <Check className="text-gold-soft mt-0.5 w-4 h-4 shrink-0" />
+                            <span className="truncate">{cap}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Inquire Button (Hidden on desktop, fades/slides in on hover) */}
+                    <div className="lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation(); // Avoid triggering card events if any
+                          handleInquire(category.name);
+                        }}
+                        suppressHydrationWarning={true}
+                        className="btn btn-outline py-2.5 px-5 text-xs font-bold w-full text-center group/btn flex items-center justify-center gap-2 mt-2"
+                      >
+                        Inquire for {category.name}
+                        <ArrowRight size={13} className="transition-transform duration-300 group-hover/btn:translate-x-0.5" />
+                      </button>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+            );
+          })}
         </div>
+
       </div>
     </section>
   );
 }
-
-
-

@@ -49,7 +49,7 @@ export default function ArtistManagement() {
 
     const timer = setInterval(() => {
       setHoveredIdx((prevIdx) => (prevIdx + 1) % artists.length);
-    }, 4000); // changes every 4 seconds
+    }, 2000); // changes every 2 seconds
 
     return () => clearInterval(timer);
   }, [hoveredIdx, isHovered]);
@@ -61,17 +61,14 @@ export default function ArtistManagement() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 md:mb-24 items-end">
           <div className="lg:col-span-6 text-left">
             <div className="flex items-center gap-2 mb-3">
-              <span className="h-[1px] w-6 bg-gold/80" />
-              <span className="text-[11.5px] font-semibold tracking-[0.28em] text-gold uppercase">
-                Celebrity & Talent Booking
-              </span>
+              <span className="eyebrow">Celebrity & Talent Booking</span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-white font-semibold tracking-tight">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-fog font-normal leading-tight tracking-tight">
               Artist & Entertainment
             </h2>
           </div>
           <div className="lg:col-span-6 text-left">
-            <p className="text-zinc-500 text-sm md:text-base font-normal leading-relaxed max-w-xl lg:ml-auto">
+            <p className="text-mist text-lg font-normal leading-relaxed max-w-xl lg:ml-auto">
               We manage relationships with top talents and coordinate their on-stage execution, 
               handling logistics, staging, and technical requirements flawlessly.
             </p>
@@ -93,7 +90,7 @@ export default function ArtistManagement() {
                 src={artists[hoveredIdx].image}
                 alt={artists[hoveredIdx].title}
                 loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 animate-fade-in"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-200 ease-out group-hover:scale-105 animate-fade-in"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 z-10">
@@ -119,14 +116,14 @@ export default function ArtistManagement() {
                 <div
                   key={idx}
                   onClick={() => setHoveredIdx(idx)}
-                  className="py-6 cursor-pointer transition-all duration-300 group"
+                  className="py-6 cursor-pointer transition-all duration-150 group"
                 >
                   {/* Accordion Header Row */}
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-4 text-left">
                       {/* Number Index */}
-                      <span className={`font-mono text-xs tracking-widest transition-colors duration-300 ${
-                        isActive ? "text-gold" : "text-zinc-700 group-hover:text-zinc-500"
+                      <span className={`font-mono text-xs tracking-widest transition-colors duration-150 ${
+                        isActive ? "text-gold-soft" : "text-zinc-700 group-hover:text-zinc-500"
                       }`}>
                         {serialNum}
                       </span>
@@ -135,25 +132,25 @@ export default function ArtistManagement() {
                       <span className="font-light text-xs text-zinc-800">/</span>
 
                       {/* Header Title */}
-                      <h3 className={`text-xs md:text-sm font-bold tracking-wider uppercase transition-colors duration-300 ${
-                        isActive ? "text-gold" : "text-white group-hover:text-gold"
+                      <h3 className={`text-xs md:text-sm font-bold tracking-wider uppercase transition-colors duration-150 ${
+                        isActive ? "text-gold-soft" : "text-white group-hover:text-gold-soft"
                       }`}>
                         {art.title}
                       </h3>
                     </div>
 
                     {/* Plus/Minus Indicator */}
-                    <span className="font-mono text-xs text-gold mr-2 select-none">
+                    <span className="font-mono text-xs text-gold-soft mr-2 select-none">
                       {isActive ? "—" : "+"}
                     </span>
                   </div>
                   
                   {/* Expandable detail description */}
-                  <div className={`grid transition-all duration-300 ease-in-out ${
+                  <div className={`grid transition-all duration-150 ease-in-out ${
                     isActive ? "grid-rows-[1fr] opacity-100 mt-4 pl-12" : "grid-rows-[0fr] opacity-0"
                   }`}>
                     <div className="overflow-hidden">
-                      <p className="text-zinc-400 text-xs md:text-sm font-normal leading-relaxed max-w-2xl">
+                      <p className="text-mist text-sm md:text-base font-normal leading-relaxed max-w-2xl">
                         {art.desc}
                       </p>
                     </div>

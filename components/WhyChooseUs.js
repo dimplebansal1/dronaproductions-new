@@ -56,16 +56,13 @@ export default function WhyChooseUs() {
           {/* Left Column: Heading */}
           <div className="lg:col-span-5 lg:sticky lg:top-28">
             <div className="flex items-center gap-2 mb-3">
-              <span className="h-[1px] w-6 bg-gold/80" />
-              <span className="text-[11.5px] font-semibold tracking-[0.28em] text-gold uppercase">
-                Why Partner With Us
-              </span>
+              <span className="eyebrow">Why Partner With Us</span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-white font-semibold leading-tight tracking-tight">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-fog font-normal leading-tight tracking-tight">
               Executing Without Compromise
             </h2>
             <div className="h-1 w-20 bg-gold mt-6 mb-6" />
-            <p className="text-zinc-500 text-sm md:text-base font-normal leading-relaxed max-w-sm">
+            <p className="text-mist text-sm md:text-base font-normal leading-relaxed max-w-sm">
               We eliminate the stress of managing multiple agencies. By keeping planning, 
               coordination, and production equipment in-house, we guarantee consistency in quality and execution.
             </p>
@@ -93,17 +90,17 @@ export default function WhyChooseUs() {
                 <div className="flex-grow">
                   {/* Number & Title */}
                   <div className="flex items-center gap-3 mb-2">
-                    <span className="font-mono text-xs text-gold tracking-widest">
+                    <span className="font-mono text-xs tracking-widest text-gold-soft font-semibold">
                       {item.num}
                     </span>
                     <span className="text-zinc-800">/</span>
-                    <h3 className="text-xs md:text-sm font-bold tracking-wider text-white uppercase group-hover:text-gold transition-colors duration-300">
+                    <h3 className="text-xs md:text-sm font-bold tracking-wider text-white uppercase group-hover:text-gold-soft transition-colors duration-300">
                       {item.title}
                     </h3>
                   </div>
                   
                   {/* Description */}
-                  <p className="text-zinc-400 text-xs md:text-sm font-normal leading-relaxed">
+                  <p className="text-mist text-sm md:text-base font-normal leading-relaxed">
                     {item.desc}
                   </p>
                 </div>

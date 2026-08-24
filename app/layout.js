@@ -17,10 +17,9 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${baloo.variable} h-full antialiased dark`}
-      style={{ colorScheme: "dark" }}
+      className={`${baloo.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-black text-zinc-100 selection:bg-amber-500 selection:text-black">
+      <body className="flex min-h-full flex-col bg-ink text-fog">
         {children}
       </body>
     </html>

@@ -55,11 +55,8 @@ export default function Hero() {
         </div>
 
         {/* Brand Main Title */}
-        <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-medium tracking-tight text-white mb-6 text-glow leading-none select-none">
-          DRONA
-          <span className="block font-serif text-4xl md:text-5xl lg:text-6xl font-normal tracking-[0.1em] text-zinc-300 mt-2">
-            PRODUCTIONS
-          </span>
+        <h1 className="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-tight text-fog mb-6 text-glow leading-[1.05] select-none">
+          DRONA <br /> PRODUCTIONS
         </h1>
 
         {/* Tagline Sound | Light | Stage */}
@@ -68,7 +65,7 @@ export default function Hero() {
         </p>
 
         {/* Positioning Summary */}
-        <p className="max-w-2xl text-zinc-400 text-base md:text-lg font-normal leading-relaxed mb-12 px-4">
+        <p className="max-w-2xl text-lg font-normal leading-relaxed text-mist mb-12 px-4">
           Elevating live experiences across India. We merge world-class technical production, 
           artist management, and flawless end-to-end execution to craft awe-inspiring events.
         </p>
@@ -78,7 +75,7 @@ export default function Hero() {
           <button
             onClick={() => handleScrollTo("#contact")}
             suppressHydrationWarning={true}
-            className="w-full sm:w-auto bg-gold hover:bg-gold-hover text-black transition-all duration-300 text-[13px] font-semibold tracking-[0.12em] px-6 py-3.5 rounded-none uppercase shadow-lg shadow-gold/10"
+            className="btn btn-gold w-full sm:w-auto text-center"
           >
             Get a Quote
           </button>
@@ -86,7 +83,7 @@ export default function Hero() {
           <button
             onClick={() => handleScrollTo("#portfolio")}
             suppressHydrationWarning={true}
-            className="w-full sm:w-auto border border-zinc-700 hover:border-gold hover:text-gold text-zinc-300 transition-all duration-300 text-[13px] font-semibold tracking-[0.12em] px-6 py-3.5 rounded-none uppercase"
+            className="btn border border-white/10 text-mist hover:text-fog hover:border-gold/40 hover:bg-white/5 transition-all duration-300 w-full sm:w-auto text-center"
           >
             Explore Work
           </button>

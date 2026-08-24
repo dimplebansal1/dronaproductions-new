@@ -7,7 +7,6 @@ import TechnicalSolutions from "@/components/TechnicalSolutions";
 import ArtistManagement from "@/components/ArtistManagement";
 import Portfolio from "@/components/Portfolio";
 import WhyChooseUs from "@/components/WhyChooseUs";
-import Team from "@/components/Team";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 
@@ -24,7 +23,6 @@ export default function Home() {
         <ArtistManagement />
         <Portfolio />
         <WhyChooseUs />
-        <Team />
         <ContactForm />
       </main>
       <Footer />

@@ -71,17 +71,14 @@ export default function EventServices() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-20 lg:mb-28">
           <div className="lg:col-span-6">
             <div className="flex items-center gap-2 mb-3">
-              <span className="h-[1px] w-6 bg-gold/80" />
-              <span className="text-[11.5px] font-semibold tracking-[0.28em] text-gold uppercase">
-                Management Excellence
-              </span>
+              <span className="eyebrow">Management Excellence</span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-white font-semibold tracking-tight">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-fog font-normal leading-tight tracking-tight">
               Complete Event Management
             </h2>
           </div>
           <div className="lg:col-span-6 flex items-end">
-            <p className="text-zinc-500 text-sm md:text-base font-normal leading-relaxed">
+            <p className="text-mist text-lg font-normal leading-relaxed">
               We manage the complexity of live operations, integrating distinct specialized workflows 
               into a singular, seamless execution timeline. Here is our service blueprint.
             </p>
@@ -111,8 +108,8 @@ export default function EventServices() {
                 {/* Content Section */}
                 <div className="p-6 md:p-8">
                   {/* Number and Title */}
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className="font-mono text-xs text-gold tracking-widest">
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="font-mono text-xs tracking-widest text-gold-soft font-semibold">
                       {service.num}
                     </span>
                     <h3 className="text-sm md:text-base font-bold tracking-wider text-white uppercase">
@@ -121,7 +118,7 @@ export default function EventServices() {
                   </div>
                   
                   {/* Description */}
-                  <p className="text-zinc-400 text-xs md:text-sm font-normal leading-relaxed">
+                  <p className="text-mist text-sm md:text-base font-normal leading-relaxed">
                     {service.description}
                   </p>
                 </div>

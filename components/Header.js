@@ -1,34 +1,25 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { Menu, X, ArrowRight, Mail } from "lucide-react";
+import { NAV, COMPANY } from "@/lib/data";
+import { InstagramIcon, FacebookIcon } from "./SocialIcons";
 
 export default function Header() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
 
-  const navItems = [
-    { label: "HOME", href: "#home" },
-    { label: "EVENTS", href: "#events" },
-    { label: "EVENT MANAGEMENT", href: "#management" },
-    { label: "PRODUCTION", href: "#production" },
-    { label: "ARTIST MANAGEMENT", href: "#artists" },
-    { label: "PORTFOLIO", href: "#portfolio" },
-    { label: "ABOUT", href: "#about" },
-    { label: "LEADERSHIP", href: "#leadership" },
-    { label: "CONTACT", href: "#contact" },
-  ];
-
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+    const onScroll = () => {
+      setScrolled(window.scrollY > 24);
 
-      const sections = navItems.map((item) => item.href.substring(1));
+      // Active section detection on scroll
+      const sections = NAV.map((item) => item.href.substring(1));
       let currentSection = "home";
       const scrollPosition = window.scrollY + 120;
 
@@ -45,205 +36,263 @@ export default function Header() {
       setActiveSection(currentSection);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const handleNavClick = (e, href) => {
-    e.preventDefault();
-    setIsMobileMenuOpen(false);
-    const element = document.querySelector(href);
-    if (element) {
-      const offset = 80;
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
+  const closeMenu = () => setOpen(false);
+
+  const handleNavClick = (e, href) => {
+    if (href.startsWith("/") && !href.includes("#")) {
+      closeMenu();
+      return;
+    }
+
+    const hashIndex = href.indexOf("#");
+    const hash = hashIndex !== -1 ? href.substring(hashIndex) : "";
+
+    if (pathname === "/" && hash) {
+      e.preventDefault();
+      closeMenu();
+      const element = document.querySelector(hash);
+      if (element) {
+        const offset = 80;
+        const bodyRect = document.body.getBoundingClientRect().top;
+        const elementRect = element.getBoundingClientRect().top;
+        const elementPosition = elementRect - bodyRect;
+        const offsetPosition = elementPosition - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    } else {
+      closeMenu();
     }
   };
 
+  const isActive = (href) => {
+    if (href === "/team") {
+      return pathname === "/team";
+    }
+    if (pathname !== "/") {
+      return false;
+    }
+    const hashIndex = href.indexOf("#");
+    const section = hashIndex !== -1 ? href.substring(hashIndex + 1) : "";
+    return section === activeSection;
+  };
+
   return (
-    <>
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? "bg-black/90 backdrop-blur-md border-b border-zinc-900/80 shadow-lg"
-            : "bg-transparent"
+    <header className="fixed inset-x-0 top-0 z-50">
+      {/* Top Info Bar */}
+      <div
+        className={`hidden xl:block border-b border-line bg-ink/95 text-[0.62rem] md:text-[0.68rem] tracking-[0.18em] uppercase text-ash transition-all duration-500 overflow-hidden ${
+          scrolled ? "h-0 opacity-0 border-b-0" : "h-9 opacity-100"
         }`}
       >
-        {/* Top Info Bar */}
-        <div
-          className={`hidden md:block border-b border-zinc-800/60 bg-transparent transition-all duration-300 ease-in-out ${
-            isScrolled
-              ? "max-h-0 py-0 overflow-hidden opacity-0 border-b-0"
-              : "max-h-12 py-2.5 opacity-100"
-          }`}
-        >
-          <div className="w-full max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between text-[10px] font-semibold tracking-[0.15em] text-zinc-400">
-            <div className="flex items-center gap-2">
-              <span className="text-gold text-xs">◆</span>
-              <span className="uppercase">Complete Event Management & Production</span>
-            </div>
-            <div className="flex items-center gap-4">
+        <div className="container-x flex h-9 items-center justify-between">
+          <div className="flex items-center gap-2 select-none">
+            <span className="text-[8px] md:text-[10px] text-gold-soft">◆</span>
+            <span className="text-mist">{COMPANY.tagline}</span>
+          </div>
+          <div className="flex items-center gap-4">
+            <a
+              href={`mailto:${COMPANY.email}`}
+              className="flex items-center gap-1.5 transition hover:text-gold-soft"
+            >
+              <Mail size={11} className="text-gold-soft" />
+              <span>{COMPANY.email}</span>
+            </a>
+            <span className="text-line">|</span>
+            <div className="flex items-center gap-3">
               <a
-                href="mailto:info@dronaproductions.in"
-                className="flex items-center gap-1.5 hover:text-gold transition-colors duration-200"
+                href={COMPANY.socials.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="transition hover:text-gold-soft"
               >
-                <svg className="w-3.5 h-3.5 text-gold fill-none stroke-current" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-                <span>INFO@DRONAPRODUCTIONS.IN</span>
+                <InstagramIcon size={12} />
               </a>
-              <span className="text-zinc-800">|</span>
-              <div className="flex items-center gap-3">
-                <a
-                  href="https://www.instagram.com/dronaproductionsofficial?igsh=eDFvMWFzdG40Ym51"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-gold transition-colors duration-200"
-                >
-                  <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-                  </svg>
-                </a>
-                <a
-                  href="https://www.facebook.com/share/1EriBKJ4h1/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-gold transition-colors duration-200"
-                  aria-label="Facebook"
-                >
-                  <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/>
-                  </svg>
-                </a>
-              </div>
+              <a
+                href={COMPANY.socials.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="transition hover:text-gold-soft"
+              >
+                <FacebookIcon size={12} />
+              </a>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Main Navigation Header */}
-        <div
-          className={`w-full max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between relative z-50 transition-all duration-300 ${
-            isScrolled ? "py-3" : "py-5"
+      <div
+        className={`relative transition-all duration-500 ${scrolled
+          ? "border-b border-gold/10 bg-ink/80 shadow-[0_10px_40px_-20px_rgba(0,0,0,0.9)] backdrop-blur-xl"
+          : "border-b-0 border-transparent bg-gradient-to-b from-black/80 via-black/40 to-transparent"
           }`}
+      >
+        <nav
+          className={`container-x flex items-center justify-between gap-4 transition-all duration-500 ${scrolled ? "py-2.5 lg:py-3.5" : "py-3.5 lg:py-6"
+            }`}
         >
-          {/* Left Side: Logo + Nav Group */}
-          <div className="flex items-center gap-3 xl:gap-4 2xl:gap-8">
-            {/* Logo */}
-            <a href="#home" onClick={(e) => handleNavClick(e, "#home")} className="relative flex items-center gap-3 group">
-              <div className="relative h-10 w-24 md:h-12 md:w-30 transition-transform duration-300 group-hover:scale-105">
-                <Image
-                  src="/logo.png"
-                  alt="Drona Productions"
-                  fill
-                  sizes="(max-width: 768px) 96px, 120px"
-                  className="object-contain object-left"
-                  priority
-                />
-              </div>
-            </a>
+          <Link
+            href="/#home"
+            onClick={(e) => handleNavClick(e, "/#home")}
+            className="group relative flex shrink-0 items-center py-1 transition duration-300"
+            aria-label="Drona Productions home"
+          >
+            <Image
+              src="/images/Drona_png.png"
+              alt="Drona Productions"
+              width={180}
+              height={120}
+              sizes="(max-width: 640px) 130px, 160px"
+              className="h-11 sm:h-12 md:h-14 w-auto object-contain transition-all duration-300 group-hover:scale-105 group-hover:drop-shadow-[0_0_18px_rgba(212,175,55,0.45)]"
+              priority
+            />
+          </Link>
 
-            {/* Desktop Nav */}
-            <nav className="hidden xl:flex items-center gap-0">
-              {navItems.map((item, index) => (
-                <div key={item.label} className="flex items-center relative group">
-                  <a
+          <ul className="hidden items-center gap-2 xl:flex">
+            {NAV.map((item) => {
+              const active = isActive(item.href);
+              return (
+                <li key={item.href}>
+                  <Link
                     href={item.href}
                     onClick={(e) => handleNavClick(e, item.href)}
-                    className="text-[10px] 2xl:text-[12px] font-semibold tracking-[0.08em] 2xl:tracking-[0.12em] transition-colors duration-200 px-1.5 2xl:px-3 py-2.5 whitespace-nowrap relative text-zinc-400 hover:text-white"
-                  >
-                    {item.label}
-                    {/* Active Gold Underline */}
-                    <span
-                      className={`absolute bottom-0 left-1 right-1 h-[2px] bg-gold transition-all duration-300 origin-center ${
-                        activeSection === item.href.substring(1)
-                          ? "opacity-100 scale-x-100"
-                          : "opacity-0 scale-x-0 group-hover:opacity-100 group-hover:scale-x-100"
+                    className={`group relative block whitespace-nowrap rounded-full px-3.5 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.11em] transition-colors duration-300 ${active
+                      ? "text-gold-soft"
+                      : "text-mist hover:text-fog"
                       }`}
+                  >
+                    <span className="relative">{item.label}</span>
+                    <span
+                      className={`absolute inset-x-4 -bottom-px h-px origin-center bg-gold-gradient transition-transform duration-300 ${active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                        }`}
                     />
-                  </a>
-                </div>
-              ))}
-            </nav>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+
+          <div className="hidden shrink-0 xl:block">
+            <a
+              href="#contact"
+              onClick={(e) => handleNavClick(e, "#contact")}
+              className="btn btn-gold group px-5 py-2.5 text-[0.72rem]"
+            >
+              Get a Quote
+              <ArrowRight
+                size={15}
+                className="transition-transform duration-300 group-hover:translate-x-0.5"
+              />
+            </a>
           </div>
 
-          {/* Desktop CTA Button (Right) */}
-          <a
-            href="#contact"
-            onClick={(e) => handleNavClick(e, "#contact")}
-            className="hidden xl:inline-block border border-gold text-gold hover:bg-gold hover:text-black transition-all duration-300 text-[10px] 2xl:text-[12px] font-bold tracking-[0.12em] px-3 2xl:px-4 py-2 2xl:py-2.5 rounded-none uppercase whitespace-nowrap xl:ml-4 2xl:ml-6"
-          >
-            Get a Quote
-          </a>
-
-          {/* Mobile menu trigger */}
           <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            suppressHydrationWarning={true}
-            className="xl:hidden text-zinc-100 focus:outline-none p-2"
-            aria-label="Toggle navigation menu"
+            type="button"
+            suppressHydrationWarning
+            onClick={() => setOpen((v) => !v)}
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-line text-fog transition hover:border-gold/50 hover:text-gold-soft xl:hidden"
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
           >
-            <div className="w-6 h-5 relative flex flex-col justify-between">
-              <span
-                className={`w-full h-[1.5px] bg-zinc-100 transition-all duration-300 ${
-                  isMobileMenuOpen ? "transform rotate-45 translate-y-[9px] bg-gold" : ""
-                }`}
-              />
-              <span
-                className={`w-full h-[1.5px] bg-zinc-100 transition-all duration-300 ${
-                  isMobileMenuOpen ? "opacity-0" : ""
-                }`}
-              />
-              <span
-                className={`w-full h-[1.5px] bg-zinc-100 transition-all duration-300 ${
-                  isMobileMenuOpen ? "transform -rotate-45 -translate-y-[9px] bg-gold" : ""
-                }`}
-              />
-            </div>
+            {open ? <X size={22} /> : <Menu size={22} />}
           </button>
-        </div>
-      </header>
-
-      {/* Mobile Nav Overlay (Sibling Layout) */}
-      <div
-        className={`fixed inset-0 bg-black z-45 transition-all duration-300 xl:hidden flex flex-col overflow-y-auto ${
-          isMobileMenuOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
-        }`}
-      >
-        {/* Top Spacer to start menu links below the sticky header bar */}
-        <div className="h-[68px] md:h-[80px] flex-shrink-0" />
-
-        <nav className="flex flex-col items-center justify-start flex-grow gap-4 py-8 px-6">
-          {navItems.map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              onClick={(e) => handleNavClick(e, item.href)}
-              className="text-base font-medium tracking-[0.2em] text-zinc-300 hover:text-white transition-colors duration-200 uppercase py-1"
-            >
-              {item.label}
-            </a>
-          ))}
-          <a
-            href="#contact"
-            onClick={(e) => handleNavClick(e, "#contact")}
-            className="mt-6 border border-gold text-gold hover:bg-gold hover:text-black transition-all duration-300 text-sm font-bold tracking-[0.2em] px-8 py-3 rounded-none uppercase w-full max-w-[280px] text-center"
-          >
-            Get a Quote
-          </a>
         </nav>
+
+        {/* Gold hairline accent */}
+        <div
+          className={`pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent transition-opacity duration-500 ${scrolled ? "opacity-100" : "opacity-0"
+            }`}
+        />
       </div>
-    </>
+
+      {/* Mobile menu */}
+      <div
+        className={`fixed inset-x-0 bottom-0 top-[64px] z-40 origin-top bg-ink/98 backdrop-blur-xl transition-all duration-300 xl:hidden overflow-y-auto ${open
+          ? "pointer-events-auto opacity-100 visible"
+          : "pointer-events-none -translate-y-2 opacity-0 invisible"
+          }`}
+      >
+        <div className="container-x flex min-h-[calc(100vh-64px)] flex-col py-8">
+          <ul className="flex flex-col">
+            {NAV.map((item, i) => (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
+                  className={`group flex items-center gap-4 border-b border-line/50 py-4 transition ${isActive(item.href) ? "text-gold-soft" : "text-mist"
+                    }`}
+                >
+                  <span className="font-display w-8 text-sm text-gold/40">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="font-display text-2xl tracking-wide transition-transform duration-300 group-hover:translate-x-1">
+                    {item.label}
+                  </span>
+                  <ArrowRight
+                    size={18}
+                    className="ml-auto text-gold/40 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-gold-soft"
+                  />
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-auto pt-8">
+            <Link
+              href="/#contact"
+              onClick={(e) => handleNavClick(e, "/#contact")}
+              className="btn btn-gold w-full"
+            >
+              Get a Quote <ArrowRight size={16} />
+            </Link>
+            <div className="mt-6 flex items-center justify-between text-xs text-ash">
+              <a
+                href={`mailto:${COMPANY.email}`}
+                className="transition hover:text-gold-soft"
+              >
+                {COMPANY.email}
+              </a>
+              <div className="flex items-center gap-4">
+                <a
+                  href={COMPANY.socials.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="transition hover:text-gold-soft"
+                >
+                  <InstagramIcon size={18} />
+                </a>
+                <a
+                  href={COMPANY.socials.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  className="transition hover:text-gold-soft"
+                >
+                  <FacebookIcon size={18} />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
   );
 }
-
-

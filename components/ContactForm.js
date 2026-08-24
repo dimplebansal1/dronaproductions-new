@@ -58,16 +58,12 @@ export default function ContactForm() {
         {/* Header */}
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-2 mb-3">
-            <span className="h-[1px] w-6 bg-gold/80" />
-            <span className="text-[11.5px] font-semibold tracking-[0.28em] text-gold uppercase">
-              Partner With Drona
-            </span>
+            <span className="eyebrow eyebrow-center">Partner With Drona</span>
           </div>
-          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-white font-semibold tracking-tight">
+          <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-fog font-normal leading-tight tracking-tight">
             Get a Quote
           </h2>
-          <div className="h-1 w-20 bg-gold mt-6 mx-auto mb-4" />
-          <p className="text-zinc-500 text-xs font-light max-w-lg mx-auto">
+          <p className="text-mist text-lg font-normal leading-relaxed max-w-xl mx-auto mt-6">
             Tell us about your event. Our team will review your requirements and reach out 
             with a technical specification proposal.
           </p>
@@ -102,7 +98,7 @@ export default function ContactForm() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Name */}
                 <div className="flex flex-col">
-                  <label htmlFor="name" className="text-[10px] font-bold tracking-widest text-zinc-500 uppercase mb-2">
+                  <label htmlFor="name" className="text-xs font-bold tracking-widest text-zinc-400 uppercase mb-2.5">
                     Name *
                   </label>
                   <input
@@ -114,13 +110,13 @@ export default function ContactForm() {
                     onChange={handleChange}
                     suppressHydrationWarning={true}
                     placeholder="Enter your name"
-                    className="bg-black border border-zinc-850 focus:border-gold focus:ring-1 focus:ring-gold/30 text-white placeholder-zinc-700 text-xs p-3.5 outline-none transition-all duration-300 rounded-none"
+                    className="bg-black border border-zinc-850 focus:border-gold focus:ring-1 focus:ring-gold/30 text-white placeholder-zinc-700 text-sm md:text-base p-4 outline-none transition-all duration-300 rounded-none"
                   />
                 </div>
 
                 {/* Phone */}
                 <div className="flex flex-col">
-                  <label htmlFor="phone" className="text-[10px] font-bold tracking-widest text-zinc-500 uppercase mb-2">
+                  <label htmlFor="phone" className="text-xs font-bold tracking-widest text-zinc-400 uppercase mb-2.5">
                     Phone Number *
                   </label>
                   <input
@@ -132,7 +128,7 @@ export default function ContactForm() {
                     onChange={handleChange}
                     suppressHydrationWarning={true}
                     placeholder="Enter phone number"
-                    className="bg-black border border-zinc-850 focus:border-gold focus:ring-1 focus:ring-gold/30 text-white placeholder-zinc-700 text-xs p-3.5 outline-none transition-all duration-300 rounded-none"
+                    className="bg-black border border-zinc-850 focus:border-gold focus:ring-1 focus:ring-gold/30 text-white placeholder-zinc-700 text-sm md:text-base p-4 outline-none transition-all duration-300 rounded-none"
                   />
                 </div>
               </div>
@@ -140,7 +136,7 @@ export default function ContactForm() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Email */}
                 <div className="flex flex-col">
-                  <label htmlFor="email" className="text-[10px] font-bold tracking-widest text-zinc-500 uppercase mb-2">
+                  <label htmlFor="email" className="text-xs font-bold tracking-widest text-zinc-400 uppercase mb-2.5">
                     Email Address *
                   </label>
                   <input
@@ -152,13 +148,13 @@ export default function ContactForm() {
                     onChange={handleChange}
                     suppressHydrationWarning={true}
                     placeholder="Enter email address"
-                    className="bg-black border border-zinc-850 focus:border-gold focus:ring-1 focus:ring-gold/30 text-white placeholder-zinc-700 text-xs p-3.5 outline-none transition-all duration-300 rounded-none"
+                    className="bg-black border border-zinc-850 focus:border-gold focus:ring-1 focus:ring-gold/30 text-white placeholder-zinc-700 text-sm md:text-base p-4 outline-none transition-all duration-300 rounded-none"
                   />
                 </div>
 
                 {/* Event Type */}
                 <div className="flex flex-col">
-                  <label htmlFor="eventType" className="text-[10px] font-bold tracking-widest text-zinc-500 uppercase mb-2">
+                  <label htmlFor="eventType" className="text-xs font-bold tracking-widest text-zinc-400 uppercase mb-2.5">
                     Event Type *
                   </label>
                   <select
@@ -168,7 +164,7 @@ export default function ContactForm() {
                     value={formData.eventType}
                     onChange={handleChange}
                     suppressHydrationWarning={true}
-                    className="bg-black border border-zinc-850 focus:border-gold focus:ring-1 focus:ring-gold/30 text-white text-xs p-3.5 outline-none transition-all duration-300 rounded-none"
+                    className="bg-black border border-zinc-850 focus:border-gold focus:ring-1 focus:ring-gold/30 text-white text-sm md:text-base p-4 outline-none transition-all duration-300 rounded-none"
                   >
                     <option value="" disabled className="text-zinc-800">Select Event Category</option>
                     {eventTypes.map((type) => (
@@ -181,7 +177,7 @@ export default function ContactForm() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Event Date */}
                 <div className="flex flex-col">
-                  <label htmlFor="eventDate" className="text-[10px] font-bold tracking-widest text-zinc-500 uppercase mb-2">
+                  <label htmlFor="eventDate" className="text-xs font-bold tracking-widest text-zinc-400 uppercase mb-2.5">
                     Event Date
                   </label>
                   <input
@@ -191,13 +187,13 @@ export default function ContactForm() {
                     value={formData.eventDate}
                     onChange={handleChange}
                     suppressHydrationWarning={true}
-                    className="bg-black border border-zinc-850 focus:border-gold focus:ring-1 focus:ring-gold/30 text-white text-xs p-3.5 outline-none transition-all duration-300 rounded-none"
+                    className="bg-black border border-zinc-850 focus:border-gold focus:ring-1 focus:ring-gold/30 text-white text-sm md:text-base p-4 outline-none transition-all duration-300 rounded-none"
                   />
                 </div>
 
                 {/* Location */}
                 <div className="flex flex-col">
-                  <label htmlFor="location" className="text-[10px] font-bold tracking-widest text-zinc-500 uppercase mb-2">
+                  <label htmlFor="location" className="text-xs font-bold tracking-widest text-zinc-400 uppercase mb-2.5">
                     Event Location *
                   </label>
                   <input
@@ -209,14 +205,14 @@ export default function ContactForm() {
                     onChange={handleChange}
                     suppressHydrationWarning={true}
                     placeholder="City, State or Venue"
-                    className="bg-black border border-zinc-850 focus:border-gold focus:ring-1 focus:ring-gold/30 text-white placeholder-zinc-700 text-xs p-3.5 outline-none transition-all duration-300 rounded-none"
+                    className="bg-black border border-zinc-850 focus:border-gold focus:ring-1 focus:ring-gold/30 text-white placeholder-zinc-700 text-sm md:text-base p-4 outline-none transition-all duration-300 rounded-none"
                   />
                 </div>
               </div>
 
               {/* Requirement */}
               <div className="flex flex-col">
-                <label htmlFor="requirement" className="text-[10px] font-bold tracking-widest text-zinc-500 uppercase mb-2">
+                <label htmlFor="requirement" className="text-xs font-bold tracking-widest text-zinc-400 uppercase mb-2.5">
                   Requirement Summary *
                 </label>
                 <textarea
@@ -228,7 +224,7 @@ export default function ContactForm() {
                   onChange={handleChange}
                   suppressHydrationWarning={true}
                   placeholder="Detail your event plans (scale, audio-video needs, staging, artists booking...)"
-                  className="bg-black border border-zinc-850 focus:border-gold focus:ring-1 focus:ring-gold/30 text-white placeholder-zinc-700 text-xs p-3.5 outline-none transition-all duration-300 rounded-none resize-none"
+                  className="bg-black border border-zinc-850 focus:border-gold focus:ring-1 focus:ring-gold/30 text-white placeholder-zinc-700 text-sm md:text-base p-4 outline-none transition-all duration-300 rounded-none resize-none"
                 />
               </div>
 
@@ -237,7 +233,7 @@ export default function ContactForm() {
                 type="submit"
                 disabled={isSubmitting}
                 suppressHydrationWarning={true}
-                className="w-full bg-gold hover:bg-gold-hover disabled:bg-zinc-800 disabled:text-zinc-600 text-black transition-all duration-300 text-[13px] font-semibold tracking-[0.12em] py-3.5 rounded-none uppercase"
+                className="w-full bg-gold hover:bg-gold-hover disabled:bg-zinc-800 disabled:text-zinc-600 text-black transition-all duration-300 text-sm font-semibold tracking-[0.15em] py-4 rounded-none uppercase cursor-pointer"
               >
                 {isSubmitting ? "Submitting specifications..." : "Send Inquiry"}
               </button>
@@ -247,9 +243,9 @@ export default function ContactForm() {
         
         {/* Fast Contact details */}
         <div className="mt-8 flex justify-center text-center">
-          <p className="text-zinc-500 text-xs font-light">
+          <p className="text-zinc-400 text-sm md:text-base font-normal">
             Prefer direct channels? Email us at{" "}
-            <a href="mailto:info@dronaproductions.in" className="text-gold hover:underline font-semibold">
+            <a href="mailto:info@dronaproductions.in" className="text-gold-soft hover:underline font-semibold">
               info@dronaproductions.in
             </a>
           </p>

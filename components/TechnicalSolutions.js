@@ -52,17 +52,14 @@ export default function TechnicalSolutions() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16 md:mb-24 items-end">
           <div className="lg:col-span-6 text-left">
             <div className="flex items-center gap-2 mb-3">
-              <span className="h-[1px] w-6 bg-gold/80" />
-              <span className="text-[11.5px] font-semibold tracking-[0.28em] text-gold uppercase">
-                Physical Infrastructure & Gear
-              </span>
+              <span className="eyebrow">Physical Infrastructure & Gear</span>
             </div>
-            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-white font-semibold tracking-tight">
+            <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-fog font-normal leading-tight tracking-tight">
               Production & Technical Solutions
             </h2>
           </div>
           <div className="lg:col-span-6 text-left">
-            <p className="text-zinc-500 text-sm md:text-base font-normal leading-relaxed max-w-xl lg:ml-auto">
+            <p className="text-mist text-lg font-normal leading-relaxed max-w-xl lg:ml-auto">
               We operate in-house event infrastructure and high-end technical systems, ensuring 
               structural safety, operational redundancy, and elite engineering.
             </p>
@@ -86,13 +83,13 @@ export default function TechnicalSolutions() {
               {/* Content Wrapper (Title & Description slide up on hover) */}
               <div className="relative z-10 flex flex-col justify-end h-full w-full">
                 {/* Title */}
-                <h3 className="text-sm font-semibold text-white tracking-wide uppercase transition-all duration-300 lg:group-hover:text-gold lg:group-hover:-translate-y-1">
+                <h3 className="text-sm font-semibold text-white tracking-wide uppercase transition-all duration-300 lg:group-hover:text-gold-soft lg:group-hover:-translate-y-1">
                   {sol.title}
                 </h3>
                 
                 {/* Detail Description */}
-                <div className="max-h-[140px] opacity-100 mt-3 lg:max-h-0 lg:opacity-0 lg:overflow-hidden lg:mt-0 lg:transition-all lg:duration-500 lg:ease-in-out lg:group-hover:max-h-[140px] lg:group-hover:opacity-100 lg:group-hover:mt-3">
-                  <p className="text-zinc-300 text-xs md:text-sm font-normal leading-relaxed">
+                <div className="max-h-[200px] opacity-100 mt-3 lg:max-h-0 lg:opacity-0 lg:overflow-hidden lg:mt-0 lg:transition-all lg:duration-500 lg:ease-in-out lg:group-hover:max-h-[200px] lg:group-hover:opacity-100 lg:group-hover:mt-3">
+                  <p className="text-mist text-sm md:text-base font-normal leading-relaxed">
                     {sol.details}
                   </p>
                 </div>

@@ -73,7 +73,7 @@ export default function Team() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
           </div>
           <div className="md:col-span-8 lg:col-span-9 flex flex-col justify-center text-left">
-            <p className="text-zinc-300 italic text-base md:text-lg font-normal leading-relaxed mb-6 md:pl-4 whitespace-pre-line">
+            <p className="text-zinc-300 text-base md:text-lg font-normal leading-relaxed mb-6 md:pl-4 whitespace-pre-line">
               {team[0].quote}
             </p>
             <div className="border-l border-gold pl-4 mt-2">
@@ -105,7 +105,7 @@ export default function Team() {
               {/* Text on Right */}
               <div className="sm:col-span-8 flex flex-col justify-between h-full text-left">
                 <div>
-                  <p className="text-zinc-300 italic text-xs md:text-sm font-normal leading-relaxed mb-4 whitespace-pre-line">
+                  <p className="text-zinc-300 text-xs md:text-sm font-normal leading-relaxed mb-4 whitespace-pre-line">
                     {member.quote}
                   </p>
                 </div>
@@ -138,7 +138,7 @@ export default function Team() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
                 </div>
                 {/* Quote */}
-                <p className="text-zinc-400 italic text-xs md:text-sm font-normal leading-relaxed mb-6 whitespace-pre-line">
+                <p className="text-zinc-400 text-xs md:text-sm font-normal leading-relaxed mb-6 whitespace-pre-line">
                   {member.quote}
                 </p>
               </div>
