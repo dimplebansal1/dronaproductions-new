@@ -74,7 +74,7 @@ export default function EventServices() {
               <span className="eyebrow">Management Excellence</span>
             </div>
             <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-fog font-normal leading-tight tracking-tight">
-              Complete Event Management
+              Complete Event <br /> Management
             </h2>
           </div>
           <div className="lg:col-span-6 flex items-end">
