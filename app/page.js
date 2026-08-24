@@ -8,7 +8,6 @@ import ManagementShowcase from "@/components/ManagementShowcase";
 import ProductionShowcase from "@/components/ProductionShowcase";
 import InstagramShowcase from "@/components/InstagramShowcase";
 import CTABand from "@/components/CTABand";
-import Team from "@/components/Team";
 import {
   EVENTS,
   MANAGEMENT_SERVICES,
@@ -446,8 +445,6 @@ export default function Home() {
       </section>
 
       <InstagramShowcase />
-
-      <Team />
 
       <CTABand />
     </>

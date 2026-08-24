@@ -17,7 +17,7 @@ export default function CTABand({
           </span>
         </Reveal>
         <Reveal delay={80}>
-          <h2 className="font-display mx-auto mt-5 max-w-3xl text-3xl leading-tight text-fog sm:text-4xl md:text-5xl">
+          <h2 className="font-display mx-auto mt-5 max-w-3xl text-3xl font-semibold leading-tight text-fog sm:text-4xl md:text-5xl">
             {title}
           </h2>
         </Reveal>

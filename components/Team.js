@@ -73,7 +73,7 @@ export default function Team() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
           </div>
           <div className="md:col-span-8 lg:col-span-9 flex flex-col justify-center text-left">
-            <p className="text-zinc-300 italic text-base md:text-lg font-normal leading-relaxed mb-6 md:pl-4 whitespace-pre-line">
+            <p className="text-zinc-300 text-base md:text-lg font-normal leading-relaxed mb-6 md:pl-4 whitespace-pre-line">
               {team[0].quote}
             </p>
             <div className="border-l border-gold pl-4 mt-2">
@@ -93,7 +93,7 @@ export default function Team() {
             >
               <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-gold/10 to-transparent" />
               {/* Photo on Left */}
-              <div className="sm:col-span-4 relative aspect-[3/4] overflow-hidden rounded-sm border border-zinc-900/80 max-w-[180px] mx-auto sm:mx-0 w-full bg-zinc-950">
+              <div className="sm:col-span-4 relative aspect-[3/4] overflow-hidden rounded-sm border border-zinc-900/80 max-w-[280px] sm:max-w-[180px] mx-auto sm:mx-0 w-full bg-zinc-950">
                 <img 
                   src={member.image} 
                   alt={member.name} 
@@ -105,7 +105,7 @@ export default function Team() {
               {/* Text on Right */}
               <div className="sm:col-span-8 flex flex-col justify-between h-full text-left">
                 <div>
-                  <p className="text-zinc-300 italic text-xs md:text-sm font-normal leading-relaxed mb-4 whitespace-pre-line">
+                  <p className="text-zinc-300 text-xs md:text-sm font-normal leading-relaxed mb-4 whitespace-pre-line">
                     {member.quote}
                   </p>
                 </div>
@@ -128,7 +128,7 @@ export default function Team() {
             >
               <div>
                 {/* Photo */}
-                <div className="relative aspect-[3/4] overflow-hidden rounded-sm border border-zinc-900/80 mb-5 bg-zinc-950">
+                <div className="relative aspect-[3/4] overflow-hidden rounded-sm border border-zinc-900/80 mb-5 bg-zinc-950 max-w-[280px] sm:max-w-none mx-auto w-full">
                   <img 
                     src={member.image} 
                     alt={member.name} 
@@ -138,7 +138,7 @@ export default function Team() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
                 </div>
                 {/* Quote */}
-                <p className="text-zinc-400 italic text-xs md:text-sm font-normal leading-relaxed mb-6 whitespace-pre-line">
+                <p className="text-zinc-400 text-xs md:text-sm font-normal leading-relaxed mb-6 whitespace-pre-line">
                   {member.quote}
                 </p>
               </div>

@@ -21,7 +21,7 @@ export default function SectionHeading({
         </Reveal>
       ) : null}
       <Reveal delay={80}>
-        <h2 className="font-display mt-4 text-3xl leading-tight text-fog sm:text-4xl md:text-5xl">
+        <h2 className="font-display mt-4 text-3xl font-semibold leading-tight text-fog sm:text-4xl md:text-5xl">
           {title} {gold ? <span className="text-gold-gradient">{gold}</span> : null}
         </h2>
       </Reveal>
