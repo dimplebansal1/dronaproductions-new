@@ -93,7 +93,7 @@ export default function Team() {
             >
               <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-gold/10 to-transparent" />
               {/* Photo on Left */}
-              <div className="sm:col-span-4 relative aspect-[3/4] overflow-hidden rounded-sm border border-zinc-900/80 max-w-[180px] mx-auto sm:mx-0 w-full bg-zinc-950">
+              <div className="sm:col-span-4 relative aspect-[3/4] overflow-hidden rounded-sm border border-zinc-900/80 max-w-[280px] sm:max-w-[180px] mx-auto sm:mx-0 w-full bg-zinc-950">
                 <img 
                   src={member.image} 
                   alt={member.name} 

@@ -135,7 +135,7 @@ export default function EventCategories() {
             return (
               <div
                 key={category.id}
-                className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] h-[520px] relative overflow-hidden rounded-sm border border-line bg-zinc-950 cursor-pointer group hover:border-gold/30 hover:shadow-[0_0_40px_rgba(212,175,55,0.05)] transition-all duration-500"
+                className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] h-[560px] relative overflow-hidden rounded-sm border border-line bg-zinc-950 cursor-pointer group hover:border-gold/30 hover:shadow-[0_0_40px_rgba(212,175,55,0.05)] transition-all duration-500"
               >
                 {/* Background Image and Overlay */}
                 <div className="absolute inset-0 z-0 pointer-events-none">
@@ -152,7 +152,7 @@ export default function EventCategories() {
                 <div className="relative z-20 flex flex-col justify-end h-full p-6 md:p-8">
                   
                   {/* Sliding Container (Always visible on mobile/tablet, slides up on desktop hover) */}
-                  <div className="transform lg:translate-y-[190px] lg:group-hover:translate-y-0 transition-transform duration-500 ease-out flex flex-col justify-end">
+                  <div className="transform lg:translate-y-[220px] lg:group-hover:translate-y-0 transition-transform duration-500 ease-out flex flex-col justify-end">
                     
                     {/* Tagline */}
                     <span className="text-xs font-semibold tracking-[0.28em] text-gold-soft uppercase block mb-2">
@@ -195,8 +195,8 @@ export default function EventCategories() {
                         suppressHydrationWarning={true}
                         className="btn btn-outline py-2.5 px-5 text-xs font-bold w-full text-center group/btn flex items-center justify-center gap-2 mt-2"
                       >
-                        Inquire for {category.name}
-                        <ArrowRight size={13} className="transition-transform duration-300 group-hover/btn:translate-x-0.5" />
+                        Enquire Now
+                        <ArrowRight size={13} className="transition-transform duration-300 group-hover/btn:translate-x-0.5 shrink-0" />
                       </button>
                     </div>
 
