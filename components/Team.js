@@ -128,7 +128,7 @@ export default function Team() {
             >
               <div>
                 {/* Photo */}
-                <div className="relative aspect-[3/4] overflow-hidden rounded-sm border border-zinc-900/80 mb-5 bg-zinc-950">
+                <div className="relative aspect-[3/4] overflow-hidden rounded-sm border border-zinc-900/80 mb-5 bg-zinc-950 max-w-[280px] sm:max-w-none mx-auto w-full">
                   <img 
                     src={member.image} 
                     alt={member.name} 
