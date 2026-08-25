@@ -24,7 +24,7 @@ export default function EventsPage() {
         crumbs={[{ label: "Home", href: "/" }, { label: "Events" }]}
       />
 
-      <section className="py-20 md:py-28">
+      <section id="explore" className="py-20 md:py-28">
         <div className="container-x">
           <div className="flex flex-col gap-4 md:gap-6">
             {EVENTS.map((event, i) => (

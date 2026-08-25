@@ -31,7 +31,7 @@ export default function ProductionPage() {
         crumbs={[{ label: "Home", href: "/" }, { label: "Production" }]}
       />
 
-      <section className="py-20 md:py-28">
+      <section id="explore" className="py-20 md:py-28">
         <div className="container-x">
           <SectionHeading
             align="center"

@@ -34,7 +34,7 @@ export default function AboutPage() {
       /> 
 
       {/* INTRO */}
-      <section className="py-20 md:py-28">
+      <section id="explore" className="py-20 md:py-28">
         <div className="container-x grid items-center gap-14 lg:grid-cols-2">
           <div>
             <SectionHeading

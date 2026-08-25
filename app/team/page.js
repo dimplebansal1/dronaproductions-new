@@ -21,7 +21,9 @@ export default function TeamPage() {
         crumbs={[{ label: "Home", href: "/" }, { label: "Team" }]}
       />
 
-      <Team />
+      <div id="explore">
+        <Team />
+      </div>
 
       <CTABand />
     </>

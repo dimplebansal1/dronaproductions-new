@@ -135,12 +135,15 @@ export default function Home() {
               </div>
               
               {/* Right scroll indicator */}
-              <div className="flex items-center gap-2 md:gap-3 select-none">
+              <a
+                href="#explore"
+                className="flex items-center gap-2 md:gap-3 cursor-pointer group/scroll text-ash/70 hover:text-gold transition-colors duration-300"
+              >
                 <span>Scroll to Explore</span>
-                <div className="flex h-6 w-6 md:h-7 md:w-7 items-center justify-center rounded-full border border-line text-gold animate-bounce">
+                <div className="flex h-6 w-6 md:h-7 md:w-7 items-center justify-center rounded-full border border-line text-gold animate-bounce group-hover/scroll:border-gold/50 transition-colors">
                   <ArrowDown size={10} className="text-gold" />
                 </div>
-              </div>
+              </a>
             </div>
           </div>
         </div>
@@ -162,7 +165,7 @@ export default function Home() {
       </div>
 
       {/* INTRO */}
-      <section className="relative py-24 md:py-32">
+      <section id="explore" className="relative py-24 md:py-32">
         <div className="container-x grid items-center gap-14 lg:grid-cols-2">
           <div>
             <SectionHeading

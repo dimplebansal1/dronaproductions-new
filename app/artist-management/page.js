@@ -24,7 +24,7 @@ export default function ArtistManagementPage() {
         crumbs={[{ label: "Home", href: "/" }, { label: "Artist Management" }]}
       />
 
-      <section className="py-20 md:py-28">
+      <section id="explore" className="py-20 md:py-28">
         <div className="container-x">
           <SectionHeading
             align="center"
