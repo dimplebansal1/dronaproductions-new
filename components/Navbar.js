@@ -33,7 +33,7 @@ export default function Navbar() {
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50">
+    <header className={`fixed inset-x-0 top-0 transition-all ${open ? "z-[60]" : "z-50"}`}>
       {/* Top Info Bar */}
       <div
         className={`hidden xl:block border-b border-line bg-ink/95 text-[0.62rem] md:text-[0.68rem] tracking-[0.18em] uppercase text-ash transition-all duration-500 overflow-hidden ${
@@ -170,7 +170,7 @@ export default function Navbar() {
           : "pointer-events-none -translate-y-2 opacity-0 invisible"
           }`}
       >
-        <div className="container-x flex min-h-[calc(100vh-64px)] flex-col py-8">
+        <div className="container-x flex min-h-[calc(100dvh-64px)] flex-col pb-16 pt-8">
           <ul className="flex flex-col">
             {NAV.map((item) => (
               <li key={item.href}>
