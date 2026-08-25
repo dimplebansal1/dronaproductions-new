@@ -39,6 +39,10 @@
   border-color: var(--color-line);
 }
 
+h1, h2 {
+  font-weight: 600 !important;
+}
+
 html {
   scroll-behavior: smooth;
 }

@@ -172,24 +172,17 @@ export default function Navbar() {
       >
         <div className="container-x flex min-h-[calc(100vh-64px)] flex-col py-8">
           <ul className="flex flex-col">
-            {NAV.map((item, i) => (
+            {NAV.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
                   onClick={closeMenu}
-                  className={`group flex items-center gap-4 border-b border-line/50 py-4 transition ${isActive(item.href) ? "text-gold-soft" : "text-mist"
+                  className={`group flex items-center border-b border-line/50 py-4 transition ${isActive(item.href) ? "text-gold-soft" : "text-mist"
                     }`}
                 >
-                  <span className="font-display w-8 text-sm text-gold/40">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
                   <span className="font-display text-2xl tracking-wide transition-transform duration-300 group-hover:translate-x-1">
                     {item.label}
                   </span>
-                  <ArrowRight
-                    size={18}
-                    className="ml-auto text-gold/40 transition-transform duration-300 group-hover:translate-x-1 group-hover:text-gold-soft"
-                  />
                 </Link>
               </li>
             ))}
