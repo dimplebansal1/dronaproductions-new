@@ -50,7 +50,7 @@ export default function PortfolioGrid() {
               <span className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-gold-soft">
                 {p.category}
               </span>
-              <h3 className="font-display mt-2 text-2xl text-fog">{p.title}</h3>
+              <h3 className="font-display mt-2 text-xl text-fog">{p.title}</h3>
               <p className="mt-2 max-h-0 overflow-hidden text-sm text-mist opacity-0 transition-all duration-500 group-hover:max-h-24 group-hover:opacity-100">
                 {p.services}
               </p>

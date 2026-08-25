@@ -56,7 +56,7 @@ export default function Team() {
             Our Leadership
           </span>
         </div>
-        <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-white font-semibold tracking-tight mb-16 md:mb-20">
+        <h2 className="font-display text-3xl sm:text-4xl md:text-5xl text-white font-semibold tracking-tight mb-16 md:mb-20">
           The Minds Behind The Magic
         </h2>
 
@@ -73,13 +73,13 @@ export default function Team() {
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
           </div>
           <div className="md:col-span-8 lg:col-span-9 flex flex-col justify-center text-left">
-            <p className="text-zinc-300 text-base md:text-lg font-normal leading-relaxed mb-6 md:pl-4 whitespace-pre-line">
+            <p className="text-zinc-300 text-xs md:text-sm font-normal leading-relaxed mb-6 md:pl-4 whitespace-pre-line">
               {team[0].quote}
             </p>
             <div className="border-l border-gold pl-4 mt-2">
-              <h4 className="text-white text-base md:text-lg font-bold uppercase tracking-wider">{team[0].name}</h4>
-              <p className="text-gold text-sm tracking-wider font-semibold uppercase mt-0.5">{team[0].role}</p>
-              <p className="text-zinc-650 text-xs uppercase tracking-widest mt-0.5">{team[0].company}</p>
+              <h4 className="text-white text-sm md:text-base font-bold uppercase tracking-wider">{team[0].name}</h4>
+              <p className="text-gold text-xs md:text-sm tracking-wider font-semibold uppercase mt-0.5">{team[0].role}</p>
+              <p className="text-zinc-650 text-[10px] md:text-xs uppercase tracking-widest mt-0.5">{team[0].company}</p>
             </div>
           </div>
         </div>
@@ -138,15 +138,15 @@ export default function Team() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
                 </div>
                 {/* Quote */}
-                <p className="text-zinc-400 text-xs md:text-sm font-normal leading-relaxed mb-6 whitespace-pre-line">
+                <p className="text-zinc-300 text-xs md:text-sm font-normal leading-relaxed mb-6 whitespace-pre-line">
                   {member.quote}
                 </p>
               </div>
               {/* Name and Designation */}
               <div className="border-t border-zinc-900/80 pt-4">
-                <h4 className="text-white text-sm font-bold uppercase tracking-wider">{member.name}</h4>
-                <p className="text-gold text-xs tracking-wider font-semibold uppercase mt-0.5">{member.role}</p>
-                <p className="text-zinc-650 text-[10px] uppercase tracking-widest mt-0.5">{member.company}</p>
+                <h4 className="text-white text-sm md:text-base font-bold uppercase tracking-wider">{member.name}</h4>
+                <p className="text-gold text-xs md:text-sm tracking-wider font-semibold uppercase mt-0.5">{member.role}</p>
+                <p className="text-zinc-650 text-[10px] md:text-xs uppercase tracking-widest mt-0.5">{member.company}</p>
               </div>
             </div>
           ))}

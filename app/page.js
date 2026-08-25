@@ -249,13 +249,13 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/40 to-transparent" />
                   <div className="absolute inset-0 flex flex-col justify-end p-6">
-                    <h3 className="font-display text-2xl text-fog">
+                    <h3 className="font-display text-xl text-fog">
                       {event.title}
                     </h3>
                     <p className="mt-2 text-sm text-mist opacity-100 md:opacity-0 transition-all duration-500 md:group-hover:opacity-100">
                       {event.short}
                     </p>
-                    <span className="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-gold-soft">
+                    <span className="mt-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-gold-soft">
                       Explore
                       <ArrowUpRight size={14} />
                     </span>
@@ -275,7 +275,7 @@ export default function Home() {
                 <p className="text-lg text-fog">
                   Distinct event categories, each with specialised capability.
                 </p>
-                <span className="inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.15em] text-gold-soft">
+                <span className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.15em] text-gold-soft">
                   Browse all
                   <ArrowRight
                     size={16}

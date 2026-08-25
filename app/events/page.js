@@ -63,7 +63,7 @@ export default function EventsPage() {
                         </span>
                       ))}
                     </div>
-                    <span className="mt-8 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-gold-soft">
+                    <span className="mt-8 inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-gold-soft">
                       View Capabilities
                       <ArrowUpRight
                         size={15}
