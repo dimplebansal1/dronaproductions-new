@@ -252,7 +252,7 @@ export default function Home() {
                     <h3 className="font-display text-2xl text-fog">
                       {event.title}
                     </h3>
-                    <p className="mt-2 text-sm text-mist opacity-0 transition-all duration-500 group-hover:opacity-100">
+                    <p className="mt-2 text-sm text-mist opacity-100 md:opacity-0 transition-all duration-500 md:group-hover:opacity-100">
                       {event.short}
                     </p>
                     <span className="mt-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-gold-soft">
@@ -300,7 +300,7 @@ export default function Home() {
               gold="managed for you."
               description="A single, coordinated team handling every discipline of your event — from first concept to final teardown — so the experience is seamless and stress-free."
             />
-            <Reveal delay={120}>
+            <Reveal delay={120} className="w-full flex justify-start md:w-auto">
               <Link
                 href="/event-management"
                 className="btn btn-outline group whitespace-nowrap"
@@ -418,7 +418,7 @@ export default function Home() {
                     <h3 className="font-display mt-2 text-xl text-fog">
                       {p.title}
                     </h3>
-                    <p className="mt-1 text-xs text-ash opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                    <p className="mt-1 text-xs text-ash opacity-100 md:opacity-0 transition-opacity duration-500 md:group-hover:opacity-100">
                       {p.services}
                     </p>
                   </div>
