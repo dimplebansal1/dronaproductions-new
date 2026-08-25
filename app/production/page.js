@@ -98,8 +98,8 @@ export default function ProductionPage() {
             <Reveal key={s.k} delay={i * 90}>
               <div className="card group h-full rounded-sm p-8">
                 <div className="h-0.5 w-12 bg-gold/40 transition-all duration-500 group-hover:w-20 group-hover:bg-gold" />
-                <h3 className="mt-5 font-display text-2xl text-fog">{s.k}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-ash">{s.v}</p>
+                <h3 className="mt-5 font-display text-xl text-fog">{s.k}</h3>
+                <p className="mt-3 text-base leading-relaxed text-mist/90">{s.v}</p>
               </div>
             </Reveal>
           ))}

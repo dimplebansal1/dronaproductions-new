@@ -51,7 +51,7 @@ export default function ServiceCard({ item, index = 0, numbered = false }) {
             <h3 className="font-display text-xl text-fog transition-colors duration-300 group-hover:text-gold-soft">
               {item.title}
             </h3>
-            <p className="mt-3 text-[0.8rem] leading-relaxed text-mist/90">
+            <p className="mt-3 text-base leading-relaxed text-mist/90">
               {item.desc}
             </p>
           </div>

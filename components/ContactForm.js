@@ -45,9 +45,9 @@ export default function ContactForm() {
   };
 
   const field =
-    "w-full rounded-sm border border-line bg-ink/60 px-4 py-3 text-sm text-fog placeholder:text-slate transition focus:border-gold/50 focus:outline-none focus:ring-1 focus:ring-gold/30";
+    "w-full rounded-sm border border-line bg-ink/60 px-3 py-2 text-sm text-fog placeholder:text-slate transition focus:border-gold/50 focus:outline-none focus:ring-1 focus:ring-gold/30";
   const label =
-    "mb-2 block text-xs font-semibold uppercase tracking-[0.15em] text-ash";
+    "mb-1.5 block text-sm font-semibold uppercase tracking-[0.15em] text-ash";
 
   if (sent) {
     return (
@@ -84,7 +84,7 @@ export default function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-sm border border-line bg-charcoal p-6 md:p-8"
+      className="rounded-sm border border-line bg-charcoal p-5 md:p-6"
     >
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
@@ -181,7 +181,7 @@ export default function ContactForm() {
         </label>
         <textarea
           id="requirement"
-          rows={5}
+          rows={4}
           value={form.requirement}
           onChange={update("requirement")}
           placeholder="Tell us about your event, guest count, and what you need..."
@@ -192,7 +192,7 @@ export default function ContactForm() {
       <button type="submit" className="btn btn-gold mt-6 w-full sm:w-auto">
         Send Enquiry <Send size={16} />
       </button>
-      <p className="mt-4 text-xs text-slate">
+      <p className="mt-4 text-sm text-ash">
         Prefer email? Write to us at{" "}
         <a
           href={`mailto:${COMPANY.email}`}

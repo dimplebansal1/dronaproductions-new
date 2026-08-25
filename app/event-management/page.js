@@ -81,10 +81,10 @@ export default function EventManagementPage() {
                   <span className="font-display text-4xl text-gold-gradient">
                     {p.step}
                   </span>
-                  <h3 className="mt-5 text-lg font-semibold text-fog">
+                  <h3 className="font-display mt-5 text-xl text-fog transition-colors duration-300 group-hover:text-gold-soft">
                     {p.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-relaxed text-ash">
+                  <p className="mt-3 text-base leading-relaxed text-mist/90">
                     {p.desc}
                   </p>
                 </div>

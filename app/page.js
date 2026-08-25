@@ -200,7 +200,7 @@ export default function Home() {
                 <div className="font-display text-2xl text-gold-gradient">
                   360°
                 </div>
-                <p className="mt-1 text-xs text-ash">
+                <p className="mt-1.5 text-[0.62rem] md:text-[0.68rem] uppercase tracking-[0.18em] text-slate font-medium">
                   Management · Production · Talent
                 </p>
               </div>
@@ -252,7 +252,7 @@ export default function Home() {
                     <h3 className="font-display text-xl text-fog">
                       {event.title}
                     </h3>
-                    <p className="mt-2 text-sm text-mist opacity-100 md:opacity-0 transition-all duration-500 md:group-hover:opacity-100">
+                    <p className="mt-2 text-base leading-relaxed text-mist opacity-100 md:opacity-0 transition-all duration-500 md:group-hover:opacity-100">
                       {event.short}
                     </p>
                     <span className="mt-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.15em] text-gold-soft">
@@ -272,7 +272,7 @@ export default function Home() {
                 <span className="font-display text-4xl text-gold-gradient">
                   05
                 </span>
-                <p className="text-lg text-fog">
+                <p className="text-base leading-relaxed text-mist">
                   Distinct event categories, each with specialised capability.
                 </p>
                 <span className="inline-flex items-center gap-2 text-sm uppercase tracking-[0.15em] text-gold-soft">
@@ -356,7 +356,7 @@ export default function Home() {
             <ul className="mt-8 grid gap-x-6 gap-y-1 sm:grid-cols-2">
               {ARTISTS.map((a, i) => (
                 <Reveal as="li" key={a.title} delay={(i % 2) * 80}>
-                  <span className="group flex items-center gap-3 border-b border-line/60 py-3 text-sm text-mist transition-colors duration-300 hover:border-gold/20">
+                  <span className="group flex items-center gap-3 border-b border-line/60 py-3 text-base text-mist transition-colors duration-300 hover:border-gold/20">
                     <span className="text-[7px] text-gold transition-transform duration-300 group-hover:scale-125">◆</span>
                     <span className="transition-transform duration-300 group-hover:translate-x-1 group-hover:text-fog">{a.title}</span>
                   </span>
@@ -418,7 +418,7 @@ export default function Home() {
                     <h3 className="font-display mt-2 text-xl text-fog">
                       {p.title}
                     </h3>
-                    <p className="mt-1 text-xs text-ash opacity-100 md:opacity-0 transition-opacity duration-500 md:group-hover:opacity-100">
+                    <p className="mt-1 text-base leading-relaxed text-mist opacity-100 md:opacity-0 transition-opacity duration-500 md:group-hover:opacity-100">
                       {p.services}
                     </p>
                   </div>

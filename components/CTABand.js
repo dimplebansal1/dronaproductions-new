@@ -22,7 +22,7 @@ export default function CTABand({
           </h2>
         </Reveal>
         <Reveal delay={160}>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-ash">
+          <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-mist">
             {text}
           </p>
         </Reveal>

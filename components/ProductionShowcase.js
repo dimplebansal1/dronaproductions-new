@@ -89,7 +89,7 @@ function TechCard({ item, index, delay }) {
             <h3 className="font-display text-xl leading-snug text-fog transition-colors duration-300 group-hover:text-gold-soft">
               {item.title}
             </h3>
-            <p className="mt-2 text-[0.8rem] leading-relaxed text-ash">
+            <p className="mt-2 text-base leading-relaxed text-mist/90">
               {item.desc}
             </p>
           </div>

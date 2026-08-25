@@ -50,14 +50,14 @@ export default function EventsPage() {
                     <h2 className="font-display mt-4 text-3xl text-fog md:text-4xl group-hover:text-gold-soft transition-colors duration-300">
                       {event.title}
                     </h2>
-                    <p className="mt-4 max-w-md text-sm md:text-base leading-relaxed text-ash">
+                    <p className="mt-4 max-w-md text-base leading-relaxed text-mist">
                       {event.intro}
                     </p>
                     <div className="mt-6 flex flex-wrap gap-2">
                       {event.highlights.map((h) => (
                         <span
                           key={h}
-                          className="rounded-full border border-line bg-ink/30 px-3 py-1 text-xs text-mist transition-all duration-300 hover:bg-gold/10 hover:border-gold/40 hover:text-gold-soft cursor-default"
+                          className="rounded-full border border-line bg-ink/30 px-3.5 py-1 text-sm text-mist transition-all duration-300 hover:bg-gold/10 hover:border-gold/40 hover:text-gold-soft cursor-default"
                         >
                           {h}
                         </span>

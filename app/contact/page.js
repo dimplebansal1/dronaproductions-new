@@ -38,17 +38,17 @@ export default function ContactPage() {
               </p>
             </Reveal>
 
-            <div className="mt-10 space-y-5">
+            <div className="mt-8 space-y-4">
               <Reveal delay={80}>
               <a
                   href={`mailto:${COMPANY.email}`}
-                  className="group flex items-start gap-4 rounded-sm border border-line bg-charcoal p-5 transition duration-300 hover:border-gold/40 hover:shadow-[0_8px_30px_rgba(212,175,55,0.08)]"
+                  className="group flex items-start gap-3.5 rounded-sm border border-line bg-charcoal p-4 transition duration-300 hover:border-gold/40 hover:shadow-[0_8px_30px_rgba(212,175,55,0.08)]"
                 >
-                  <span className="flex h-11 w-11 items-center justify-center rounded-sm border border-gold/25 bg-gold/5 text-gold-soft transition duration-300 group-hover:bg-gold-deep group-hover:border-gold-deep group-hover:text-ink">
-                    <Mail size={20} />
+                  <span className="flex h-9 w-9 items-center justify-center rounded-sm border border-gold/25 bg-gold/5 text-gold-soft transition duration-300 group-hover:bg-gold-deep group-hover:border-gold-deep group-hover:text-ink">
+                    <Mail size={18} />
                   </span>
                   <span>
-                    <span className="block text-xs uppercase tracking-[0.15em] text-slate">
+                    <span className="block text-sm font-semibold uppercase tracking-[0.15em] text-ash">
                       Enquiries
                     </span>
                     <span className="mt-1 block text-sm text-fog">
@@ -59,12 +59,12 @@ export default function ContactPage() {
               </Reveal>
  
               <Reveal delay={140}>
-                <div className="group flex items-start gap-4 rounded-sm border border-line bg-charcoal p-5 transition duration-300 hover:border-gold/40 hover:shadow-[0_8px_30px_rgba(212,175,55,0.08)]">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-sm border border-gold/25 bg-gold/5 text-gold-soft transition duration-300 group-hover:bg-gold-deep group-hover:border-gold-deep group-hover:text-ink">
-                    <MapPin size={20} />
+                <div className="group flex items-start gap-3.5 rounded-sm border border-line bg-charcoal p-4 transition duration-300 hover:border-gold/40 hover:shadow-[0_8px_30px_rgba(212,175,55,0.08)]">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-sm border border-gold/25 bg-gold/5 text-gold-soft transition duration-300 group-hover:bg-gold-deep group-hover:border-gold-deep group-hover:text-ink">
+                    <MapPin size={18} />
                   </span>
                   <span>
-                    <span className="block text-xs uppercase tracking-[0.15em] text-slate">
+                    <span className="block text-sm font-semibold uppercase tracking-[0.15em] text-ash">
                       Address
                     </span>
                     <span className="mt-1 block text-sm text-fog">
@@ -75,12 +75,12 @@ export default function ContactPage() {
               </Reveal>
  
               <Reveal delay={200}>
-                <div className="group flex items-start gap-4 rounded-sm border border-line bg-charcoal p-5 transition duration-300 hover:border-gold/40 hover:shadow-[0_8px_30px_rgba(212,175,55,0.08)]">
-                  <span className="flex h-11 w-11 items-center justify-center rounded-sm border border-gold/25 bg-gold/5 text-gold-soft transition duration-300 group-hover:bg-gold-deep group-hover:border-gold-deep group-hover:text-ink">
-                    <Clock size={20} />
+                <div className="group flex items-start gap-3.5 rounded-sm border border-line bg-charcoal p-4 transition duration-300 hover:border-gold/40 hover:shadow-[0_8px_30px_rgba(212,175,55,0.08)]">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-sm border border-gold/25 bg-gold/5 text-gold-soft transition duration-300 group-hover:bg-gold-deep group-hover:border-gold-deep group-hover:text-ink">
+                    <Clock size={18} />
                   </span>
                   <span>
-                    <span className="block text-xs uppercase tracking-[0.15em] text-slate">
+                    <span className="block text-sm font-semibold uppercase tracking-[0.15em] text-ash">
                       Response Time
                     </span>
                     <span className="mt-1 block text-sm text-fog">
@@ -93,7 +93,7 @@ export default function ContactPage() {
 
             <Reveal delay={240}>
               <div className="mt-8">
-                <p className="text-xs uppercase tracking-[0.2em] text-slate">
+                <p className="text-sm font-semibold uppercase tracking-[0.15em] text-ash">
                   Follow Us
                 </p>
                 <div className="mt-4 flex gap-3">
@@ -118,10 +118,10 @@ export default function ContactPage() {
                 </div>
               </div>
             </Reveal>
-
+ 
             <Reveal delay={280}>
               <div className="mt-8 rounded-sm border border-gold/20 bg-gold/5 p-5">
-                <p className="text-xs uppercase tracking-[0.2em] text-slate">
+                <p className="text-sm font-semibold uppercase tracking-[0.15em] text-ash">
                   Partners
                 </p>
                 <p className="mt-2 text-sm text-mist">

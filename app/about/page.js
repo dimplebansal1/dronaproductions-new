@@ -44,7 +44,7 @@ export default function AboutPage() {
               description="We founded Drona Productions on a simple belief: an event should feel effortless to the host and unforgettable to the guest. To make that possible, we brought management, production and talent together under one roof."
             />
             <Reveal delay={160}>
-              <p className="mt-6 text-base leading-relaxed text-ash">
+              <p className="mt-6 text-lg leading-relaxed text-mist">
                 From grand weddings and government ceremonies to arena concerts,
                 conferences and private celebrations, our teams handle every
                 detail — creative direction, technical production, hospitality
@@ -54,7 +54,7 @@ export default function AboutPage() {
             <div className="mt-8 grid grid-cols-2 gap-3">
               {CAPABILITIES.map((c, i) => (
                 <Reveal as="div" key={c} delay={(i % 2) * 80}>
-                  <span className="flex items-center gap-3 text-sm text-mist">
+                  <span className="flex items-center gap-3 text-base text-mist">
                     <span className="h-1.5 w-1.5 rounded-full bg-gold" />
                     {c}
                   </span>
